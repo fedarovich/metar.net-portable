@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{119FCACD-C111-495C-BCA9-FC332EE88D74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ENG.WMOCodes</RootNamespace>
+    <AssemblyName>ENG.WMOCodes</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ENG.WMOCodes.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESystem">
+      <HintPath>..\..\ESystemSolution\FW 3.5\ESystem\bin\Debug\ESystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\Basic\ICodeItem.cs" />
+    <Compile Include="Types\Basic\NonNegInt.cs" />
+    <Compile Include="Types\Basic\Racional.cs" />
+    <Compile Include="Types\Cloud.cs" />
+    <Compile Include="Types\CloudInfo.cs" />
+    <Compile Include="Types\CloudInfoWithNCD.cs" />
+    <Compile Include="Types\DateTimeTypes\DateTimeType.cs" />
+    <Compile Include="Types\DateTimeTypes\DayHour.cs" />
+    <Compile Include="Types\DateTimeTypes\DayHourDayHour.cs" />
+    <Compile Include="Types\DateTimeTypes\DayHourMinute.cs" />
+    <Compile Include="Types\ePhenomCollection.cs" />
+    <Compile Include="Codes\Metar.cs" />
+    <Compile Include="Types\PhenomInfo.cs" />
+    <Compile Include="Types\PhenomInfoWithNSW.cs" />
+    <Compile Include="Types\PressureInfo.cs" />
+    <Compile Include="Types\RePhenomInfo.cs" />
+    <Compile Include="Types\RunwayCondition.cs" />
+    <Compile Include="Types\RunwayConditionInfo.cs" />
+    <Compile Include="Types\RunwayVisibility.cs" />
+    <Compile Include="Codes\Taf.cs" />
+    <Compile Include="Types\TafInterval.cs" />
+    <Compile Include="Types\TafIntervalFM.cs" />
+    <Compile Include="Types\TafIntervalNonFM.cs" />
+    <Compile Include="Types\TemperatureExtreme.cs" />
+    <Compile Include="Types\TemperatureExtremeTN.cs" />
+    <Compile Include="Types\TemperatureExtremeTX.cs" />
+    <Compile Include="Types\DateTimeTypes\HourMinute.cs" />
+    <Compile Include="Types\TrendInfoForMetar.cs" />
+    <Compile Include="Types\TrendInfoForTaf.cs" />
+    <Compile Include="Types\TrendReport.cs" />
+    <Compile Include="Types\TrendTime.cs" />
+    <Compile Include="Types\TrendTimeInfo.cs" />
+    <Compile Include="Types\Visibility.cs" />
+    <Compile Include="Types\VisibilityForMetar.cs" />
+    <Compile Include="Types\Wind.cs" />
+    <Compile Include="Types\WindShear.cs" />
+    <Compile Include="Types\WindShearInfo.cs" />
+    <Compile Include="Types\WindVariable.cs" />
+    <Compile Include="Types\WindWithVariability.cs" />
+    <Compile Include="Types\_Common.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

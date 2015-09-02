@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2812CCF5-445B-42F6-A2A9-E9C10B9BEED0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ENG.WMOCodes</RootNamespace>
+    <AssemblyName>ENG.WMOCodes</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESystem">
+      <HintPath>..\..\..\ESystemSolution\FW 4.0\ESystem\bin\Debug\ESystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Codes\Metar.cs">
+      <Link>Codes\Metar.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Codes\Taf.cs">
+      <Link>Codes\Taf.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\Basic\ICodeItem.cs">
+      <Link>Types\Basic\ICodeItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\Basic\NonNegInt.cs">
+      <Link>Types\Basic\NonNegInt.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\Basic\Racional.cs">
+      <Link>Types\Basic\Racional.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\Cloud.cs">
+      <Link>Types\Cloud.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\CloudInfo.cs">
+      <Link>Types\CloudInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\CloudInfoWithNCD.cs">
+      <Link>Types\CloudInfoWithNCD.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\DateTimeTypes\DateTimeType.cs">
+      <Link>Types\DateTimeTypes\DateTimeType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\DateTimeTypes\DayHour.cs">
+      <Link>Types\DateTimeTypes\DayHour.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\DateTimeTypes\DayHourDayHour.cs">
+      <Link>Types\DateTimeTypes\DayHourDayHour.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\DateTimeTypes\DayHourMinute.cs">
+      <Link>Types\DateTimeTypes\DayHourMinute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\DateTimeTypes\HourMinute.cs">
+      <Link>Types\DateTimeTypes\HourMinute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\ePhenomCollection.cs">
+      <Link>Types\ePhenomCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\PhenomInfo.cs">
+      <Link>Types\PhenomInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\PhenomInfoWithNSW.cs">
+      <Link>Types\PhenomInfoWithNSW.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\PressureInfo.cs">
+      <Link>Types\PressureInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\RePhenomInfo.cs">
+      <Link>Types\RePhenomInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\RunwayCondition.cs">
+      <Link>Types\RunwayCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\RunwayConditionInfo.cs">
+      <Link>Types\RunwayConditionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\RunwayVisibility.cs">
+      <Link>Types\RunwayVisibility.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TafInterval.cs">
+      <Link>Types\TafInterval.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TafIntervalFM.cs">
+      <Link>Types\TafIntervalFM.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TafIntervalNonFM.cs">
+      <Link>Types\TafIntervalNonFM.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TemperatureExtreme.cs">
+      <Link>Types\TemperatureExtreme.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TemperatureExtremeTN.cs">
+      <Link>Types\TemperatureExtremeTN.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TemperatureExtremeTX.cs">
+      <Link>Types\TemperatureExtremeTX.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TrendInfoForMetar.cs">
+      <Link>Types\TrendInfoForMetar.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TrendInfoForTaf.cs">
+      <Link>Types\TrendInfoForTaf.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TrendReport.cs">
+      <Link>Types\TrendReport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TrendTime.cs">
+      <Link>Types\TrendTime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\TrendTimeInfo.cs">
+      <Link>Types\TrendTimeInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\Visibility.cs">
+      <Link>Types\Visibility.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\VisibilityForMetar.cs">
+      <Link>Types\VisibilityForMetar.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\Wind.cs">
+      <Link>Types\Wind.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\WindShear.cs">
+      <Link>Types\WindShear.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\WindShearInfo.cs">
+      <Link>Types\WindShearInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\WindVariable.cs">
+      <Link>Types\WindVariable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\WindWithVariability.cs">
+      <Link>Types\WindWithVariability.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\_Common.cs">
+      <Link>Types\_Common.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

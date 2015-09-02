@@ -1,0 +1,44 @@
+Description of the content of the archive 
+             METAR.NET
+=========================================
+
+The whole project can be found on http://metar.codeplex.com
+
+This file describes the content of the archive. 
+For description and manual see web page above.
+
+Some files are available only for _NET compilation and are unavaliable
+for the Silverlight compilation. The desired _NET version is 3.5. 
+The desired Silverlight version is Silverlight 3.
+
+The content of the archive:
+---------------------------
+CS-cz (folder)		- resource files for assemblies Formatter assemblies, contains
+			dll files with translated resource strings.
+Tutorial		- _NET only, not in Silverlight. 
+			- Demo project demonstrating usage of the METAR.NET.
+ENG.WMOCodes.*		- definition of basic data types, like metar, clouds, winds, etc.
+ENG.WMOCodes.Decoders.*	- definition of decoders, which can convert report code (e.g.
+			LKPR 012000Z 12002KT into the basic data types.
+ENG.WMOCodes.Downloaders.*
+			- definition of downloaders which can achieve and download
+			report codes.
+ENG.WMOCodes.Formatters.*
+			- interface defining formatters; formatters will convert decoded
+			reports into human readable strings.
+ENG.WMOCodes.Formatters.InfoFormatter.*
+			- _NET only, not in Silverlight. 
+			- More detailed formatter which can convert decoded metar/taf report
+			into human readable strings. EN-us culture is supported only.
+ENG.WMOCodes.Formatters.ShortInfo.*
+			- _NET only, not in Silverlight. 
+			- Simple formatter which can convert decoded metar/taf report
+			into human readable strings. EN-us and CS-cz cultures are supported.
+ESystem.Extensions.*	- prerequisity project with some referenced implementations.
+
+
+Marek Vajgl
+engin@seznam.c
+metar.codeplex.com			
+
+

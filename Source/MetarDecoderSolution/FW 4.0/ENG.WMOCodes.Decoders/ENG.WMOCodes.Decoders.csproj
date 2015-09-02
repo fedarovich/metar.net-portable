@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA10518E-40C0-4C13-9007-11B4C225A295}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ENG.WMOCodes.Decoders</RootNamespace>
+    <AssemblyName>ENG.WMOCodes.Decoders</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Exceptions\DecodeException.cs">
+      <Link>Exceptions\DecodeException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\AMDDecoder.cs">
+      <Link>Internal\AMDDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\AUTODecoder.cs">
+      <Link>Internal\AUTODecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\Basic\CustomDecoder.cs">
+      <Link>Internal\Basic\CustomDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\Basic\InternalDecoder.cs">
+      <Link>Internal\Basic\InternalDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\Basic\PublicDecoder.cs">
+      <Link>Internal\Basic\PublicDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\Basic\TypeDecoder.cs">
+      <Link>Internal\Basic\TypeDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\CloudInfoDecoder.cs">
+      <Link>Internal\CloudInfoDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\CloudInfoWithNCDDecoder.cs">
+      <Link>Internal\CloudInfoWithNCDDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\CNLDecoder.cs">
+      <Link>Internal\CNLDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\CORDecoder.cs">
+      <Link>Internal\CORDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\DayHourDayHourDecoder.cs">
+      <Link>Internal\DayHourDayHourDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\DayHourMinuteDecoder.cs">
+      <Link>Internal\DayHourMinuteDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\DewPointDecoder.cs">
+      <Link>Internal\DewPointDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\ICAODecoder.cs">
+      <Link>Internal\ICAODecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\ICAOWithNumbersDecoder.cs">
+      <Link>Internal\ICAOWithNumbersDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\MetarPrefixDecoder.cs">
+      <Link>Internal\MetarPrefixDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\NILDecoder.cs">
+      <Link>Internal\NILDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\PhenomInfoDecoder.cs">
+      <Link>Internal\PhenomInfoDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\PhenomInfoWithNSWDecoder.cs">
+      <Link>Internal\PhenomInfoWithNSWDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\PressureInfoDecoder.cs">
+      <Link>Internal\PressureInfoDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\RemarkDecoder.cs">
+      <Link>Internal\RemarkDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\RePhenomInfoDecoder.cs">
+      <Link>Internal\RePhenomInfoDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\RunwayConditionDecoder.cs">
+      <Link>Internal\RunwayConditionDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\RunwayConditionInfoDecoder.cs">
+      <Link>Internal\RunwayConditionInfoDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\RunwayVisibilityDecoder.cs">
+      <Link>Internal\RunwayVisibilityDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\RunwayVisibilityListDecoder.cs">
+      <Link>Internal\RunwayVisibilityListDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\SeaStateDecoder.cs">
+      <Link>Internal\SeaStateDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\SeaSurfaceTemperatureDecoder.cs">
+      <Link>Internal\SeaSurfaceTemperatureDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\TafPrefixDecoder.cs">
+      <Link>Internal\TafPrefixDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\TemperatureDecoder.cs">
+      <Link>Internal\TemperatureDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\TNDecoder.cs">
+      <Link>Internal\TNDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\TrendInfoForMetarDecoder.cs">
+      <Link>Internal\TrendInfoForMetarDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\TrendInfoForTafDecoder.cs">
+      <Link>Internal\TrendInfoForTafDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\TrendInfoForTafListDecoder.cs">
+      <Link>Internal\TrendInfoForTafListDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\TrendReportDecoder.cs">
+      <Link>Internal\TrendReportDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\TXDecoder.cs">
+      <Link>Internal\TXDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\VisibilityDecoder.cs">
+      <Link>Internal\VisibilityDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\VisibilityForMetarDecoder.cs">
+      <Link>Internal\VisibilityForMetarDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\WindDecoder.cs">
+      <Link>Internal\WindDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\WindShearDecoder.cs">
+      <Link>Internal\WindShearDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\WindShearInfoDecoder.cs">
+      <Link>Internal\WindShearInfoDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\WindVariableDecoder.cs">
+      <Link>Internal\WindVariableDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\Internal\WindWithVariabilityDecoder.cs">
+      <Link>Internal\WindWithVariabilityDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\MetarDecoder.cs">
+      <Link>MetarDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\MetarDecoderWithAllOptional.cs">
+      <Link>MetarDecoderWithAllOptional.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\TafDecoder.cs">
+      <Link>TafDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Decoders\_Extensions.cs">
+      <Link>_Extensions.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj">
+      <Project>{2812CCF5-445B-42F6-A2A9-E9C10B9BEED0}</Project>
+      <Name>ENG.WMOCodes %28FW 4.0\ENG.WMOCodes%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

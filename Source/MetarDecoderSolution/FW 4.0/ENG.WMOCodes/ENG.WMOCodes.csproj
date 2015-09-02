@@ -49,6 +49,15 @@
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Codes\Taf.cs">
       <Link>Codes\Taf.cs</Link>
     </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Extensions\ComparableExtensions.cs">
+      <Link>Extensions\ComparableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Extensions\ObjectExtensions.cs">
+      <Link>Extensions\ObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Extensions\StringBuilderExtensions.cs">
+      <Link>Extensions\StringBuilderExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\Basic\ICodeItem.cs">
       <Link>Types\Basic\ICodeItem.cs</Link>
     </Compile>

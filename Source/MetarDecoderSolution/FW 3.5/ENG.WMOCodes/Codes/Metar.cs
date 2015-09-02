@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using ESystem.Extensions;
+using ENG.WMOCodes.Extensions;
 using ENG.WMOCodes.Types.Basic;
 using ENG.WMOCodes.Types.DateTimeTypes;
 using ENG.WMOCodes.Types;
@@ -537,7 +537,7 @@ namespace ENG.WMOCodes.Codes
     /// <returns>A <see cref="T:System.String"/> that represents the current instance.</returns>
     public override string ToString()
     {
-      return ESystem.Extensions.ObjectExt.ToInlineInfoString(this);
+      return this.ToInlineInfoString();
     }
 
     #region MetarItem Members

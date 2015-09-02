@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ENG.WMOCodes.Types.Basic;
-using ESystem.Extensions;
+using ENG.WMOCodes.Extensions;
 
 namespace ENG.WMOCodes.Types
 {

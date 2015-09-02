@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ESystem.Extensions;
+using ENG.WMOCodes.Extensions;
 
 namespace ENG.WMOCodes.Types.DateTimeTypes
 {
@@ -124,7 +124,7 @@ public string ToInfo(bool verbose)
     /// <returns>A <see cref="T:System.String"/> that represents the current instance.</returns>
     public override string ToString()
     {
-      return ESystem.Extensions.ObjectExt.ToInlineInfoString(this);
+      return this.ToInlineInfoString();
     }
 
     /// <summary>

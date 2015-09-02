@@ -189,7 +189,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj">
       <Project>{2812CCF5-445B-42F6-A2A9-E9C10B9BEED0}</Project>
-      <Name>ENG.WMOCodes %28FW 4.0\ENG.WMOCodes%29</Name>
+      <Name>ENG.WMOCodes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

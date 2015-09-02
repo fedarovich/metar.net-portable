@@ -8,7 +8,7 @@ namespace ENG.WMOCodes.Decoders.Internal
   /// <summary>
   /// Exception thrown when decoding failed.
   /// </summary>
-#if SILVERLIGHT == false
+#if SILVERLIGHT == false && PCL == false
   [Serializable]
 #endif
   public class DecodeException : Exception
@@ -37,7 +37,7 @@ namespace ENG.WMOCodes.Decoders.Internal
       this._Description = decoderDescription;
     }
 
-#if SILVERLIGHT == false
+#if SILVERLIGHT == false && PCL == false
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DecodeException"/> class.
@@ -57,14 +57,14 @@ namespace ENG.WMOCodes.Decoders.Internal
 
 #endif
 
-    /// <summary>
-    /// Gets a message that describes the current exception.
-    /// </summary>
-    /// <value></value>
-    /// <returns>
-    /// The error message that explains the reason for the exception, or an empty string("").
-    /// </returns>
-    public override string Message
+        /// <summary>
+        /// Gets a message that describes the current exception.
+        /// </summary>
+        /// <value></value>
+        /// <returns>
+        /// The error message that explains the reason for the exception, or an empty string("").
+        /// </returns>
+        public override string Message
     {
       get
       {

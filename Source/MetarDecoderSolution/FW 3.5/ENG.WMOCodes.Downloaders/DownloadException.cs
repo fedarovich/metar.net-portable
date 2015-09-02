@@ -9,7 +9,7 @@ namespace ENG.WMOCodes.Downloaders
   /// Raised when some error occurs during metar downloading or decoding.
   /// Inner exception should contain more accurate information.
   /// </summary>
-#if SILVERLIGHT == false
+#if SILVERLIGHT == false && PCL == false
   [global::System.Serializable]
 #endif
   public class DownloadException : Exception
@@ -27,7 +27,7 @@ namespace ENG.WMOCodes.Downloaders
     /// <param name="inner">The inner.</param>
     public DownloadException(string message, Exception inner) : base(message, inner) { }
 
-#if SILVERLIGHT == FALSE
+#if SILVERLIGHT == FALSE && PCL == false
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DownloadException"/> class.
@@ -46,5 +46,5 @@ namespace ENG.WMOCodes.Downloaders
       : base(info, context) { }
 
 #endif
-  }
+    }
 }

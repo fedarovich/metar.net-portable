@@ -189,6 +189,9 @@
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes\Types\_Common.cs">
       <Link>Types\_Common.cs</Link>
     </Compile>
+    <Compile Include="..\..\Include\AssemblyInfoShared.cs">
+      <Link>Properties\AssemblyInfoShared.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Include\AssemblyInfoShared.cs">
+      <Link>Properties\AssemblyInfoShared.cs</Link>
+    </Compile>
     <Compile Include="Exceptions\DecodeException.cs" />
     <Compile Include="Internal\AMDDecoder.cs" />
     <Compile Include="Internal\AUTODecoder.cs" />

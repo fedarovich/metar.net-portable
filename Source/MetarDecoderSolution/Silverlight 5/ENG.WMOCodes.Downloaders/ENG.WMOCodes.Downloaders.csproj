@@ -84,6 +84,9 @@
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\TAF\NoaaGovRetriever.cs">
       <Link>Retrievers\TAF\NoaaGovRetriever.cs</Link>
     </Compile>
+    <Compile Include="..\..\Include\AssemblyInfoShared.cs">
+      <Link>Properties\AssemblyInfoShared.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

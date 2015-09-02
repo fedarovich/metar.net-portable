@@ -157,6 +157,9 @@
     <Compile Include="..\..\fw 3.5\eng.wmocodes\types\_Common.cs">
       <Link>Types\_Common.cs</Link>
     </Compile>
+    <Compile Include="..\..\Include\AssemblyInfoShared.cs">
+      <Link>Properties\AssemblyInfoShared.cs</Link>
+    </Compile>
     <Compile Include="Extensions\ComparableExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />

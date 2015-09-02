@@ -209,7 +209,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj">
       <Project>{0E55A3DE-355C-4C38-B987-D67EC3F886A2}</Project>
-      <Name>ENG.WMOCodes %28Silverlight 5\ENG.WMOCodes%29</Name>
+      <Name>ENG.WMOCodes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

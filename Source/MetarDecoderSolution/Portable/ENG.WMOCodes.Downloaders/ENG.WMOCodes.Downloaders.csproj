@@ -1,24 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B6CBCF4E-F45B-4AA9-A656-04A18DCC83FD}</ProjectGuid>
+    <ProjectGuid>{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ENG.WMOCodes.Downloaders</RootNamespace>
     <AssemblyName>ENG.WMOCodes.Downloaders</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile328</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;PCL</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -26,23 +29,18 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;PCL</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj">
+      <Project>{93d1406a-018a-4096-81d6-529f67fadb15}</Project>
+      <Name>ENG.WMOCodes</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Downloader.cs">
-      <Link>Downloader.cs</Link>
-    </Compile>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\DownloadException.cs">
       <Link>DownloadException.cs</Link>
     </Compile>
@@ -52,27 +50,22 @@
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\RetrieveResult.cs">
       <Link>RetrieveResult.cs</Link>
     </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\NoaaGovRetriever.cs">
+    <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\metar\NoaaGovRetriever.cs">
       <Link>Retrievers\METAR\NoaaGovRetriever.cs</Link>
     </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\OldLineWeatherRetriever.cs">
+    <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\metar\OldLineWeatherRetriever.cs">
       <Link>Retrievers\METAR\OldLineWeatherRetriever.cs</Link>
     </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\USAS1VatsimRetriever.cs">
+    <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\metar\USAS1VatsimRetriever.cs">
       <Link>Retrievers\METAR\USAS1VatsimRetriever.cs</Link>
     </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\TAF\NoaaGovRetriever.cs">
+    <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\taf\NoaaGovRetriever.cs">
       <Link>Retrievers\TAF\NoaaGovRetriever.cs</Link>
     </Compile>
+    <Compile Include="Downloader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj">
-      <Project>{2812CCF5-445B-42F6-A2A9-E9C10B9BEED0}</Project>
-      <Name>ENG.WMOCodes</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

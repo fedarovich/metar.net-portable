@@ -5,6 +5,6 @@ The library is available under the terms of LGPL 2.1.
 
 The NuGet packages are available:
 
-* [METAR.NET Portable](https://www.nuget.org/packages/METAR.NET.Portable/)
+* [METAR.NET Portable](https://www.nuget.org/packages/METAR.NET.Portable/) package contains METAR decoder.
 
-* [METAR.NET Downloaders Portable](https://www.nuget.org/packages/METAR.NET.Downloaders.Portable/)
+* [METAR.NET Downloaders Portable](https://www.nuget.org/packages/METAR.NET.Downloaders.Portable/) package contains additional classes to download METAR reports from known web services.

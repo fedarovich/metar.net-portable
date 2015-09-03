@@ -3,7 +3,7 @@ This fork provides METAR.NET class libraries as Portable Class Libraries (PCL).
 
 The library is available under the terms of LGPL 2.1.
 
-The NuGet packages are available
+The NuGet packages are available:
 
 * [METAR.NET Portable](https://www.nuget.org/packages/METAR.NET.Portable/)
 

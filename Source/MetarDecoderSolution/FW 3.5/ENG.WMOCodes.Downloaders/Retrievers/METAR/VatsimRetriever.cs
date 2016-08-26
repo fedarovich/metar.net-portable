@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 #if PCL
 using System.Threading.Tasks;
 #endif
 
-namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
+namespace ENG.WMOCodes.Downloaders.Retrievers.METAR
 {
     /// <summary>
-    /// This class is able to download metar from web OldLineWeather.
-    /// </summary>
-    /// <seealso cref="T:ENG.Metar.Downloader.IMetarRetrieve"/>
-    [Obsolete]
-    public class OldLineWeatherRetriever : IRetriever
+    /// This class is able to download metar from usa vatsim network source.
+    /// Downloaded metar is associated to VATSIM online network, and can differ
+    /// significantly from real weather.
+    /// </summary>  
+    public class VatsimRetriever : IRetriever
     {
+        /// <summary>
+        /// URL
+        /// </summary>
+        private const string SOURCE = "http://metar.vatsim.net/metar.php?id=";
+
         #region IMetarRetrieve Members
 
         /// <summary>
@@ -26,7 +30,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// <returns></returns>
         public string GetUrlForICAO(string icao)
         {
-            return "http://www.oldlineweather.com/wxmetar.php?station=" + icao.ToUpper();
+            return SOURCE + icao.ToUpper();
         }
 
 #if PCL
@@ -43,23 +47,14 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// </exception>
         public async Task<string> DecodeWMOCodeAsync(Stream sourceStream)
         {
-            string ret = null;
+            StreamReader str = new StreamReader(sourceStream);
 
-            var rdr = new StreamReader(sourceStream);
-            string pom = await rdr.ReadToEndAsync().ConfigureAwait(false);
-            rdr = null;
+            string metar = await str.ReadToEndAsync().ConfigureAwait(false);
 
-            string rgx = @"METAR = (([A-Z]|[0-9]|/|[+\-]| )+)";
+            if (IsNotValidMetar(metar))
+                throw new Exception("Invalid icao code.");
 
-            Match m = Regex.Match(pom, rgx);
-            if (m.Success)
-                ret = m.Groups[1].Value;
-            else
-                throw new DownloadException("Unable to decode information from page. Incorrect ICAO?");
-
-            ret = "METAR " + ret;
-
-            return ret;
+            return "METAR " + metar;
         }
 
 #else
@@ -70,29 +65,36 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// </summary>
         /// <param name="sourceStream">Source stream, from which the metar will be obtained.</param>
         /// <returns>Metar string.</returns>
-        /// <exception cref="DownloadException">Returns if anything fails. Inner exception should contain more accurate info.</exception>
+        /// <exception cref="DownloadException">
+        /// Returns if anything fails. Inner exception should contain more accurate info.
+        /// </exception>
+        ///     
         public string DecodeWMOCode(System.IO.Stream sourceStream)
         {
-            string ret = null;
+            StreamReader str = new StreamReader(sourceStream);
 
-            System.IO.StreamReader rdr = new System.IO.StreamReader(sourceStream);
-            string pom = rdr.ReadToEnd();
-            rdr = null;
+            string metar = str.ReadToEnd();
 
-            string rgx = @"METAR = (([A-Z]|[0-9]|/|[+\-]| )+)";
+            if (IsNotValidMetar(metar))
+                throw new Exception("Invalid icao code.");
 
-            Match m = Regex.Match(pom, rgx);
-            if (m.Success)
-                ret = m.Groups[1].Value;
-            else
-                throw new DownloadException("Unable to decode information from page. Incorrect ICAO?");
-
-            ret = "METAR " + ret;
-
-            return ret;
+            return "METAR " + metar;
         }
 
 #endif
+
+        /// <summary>
+        /// Checks if metar is valid.
+        /// </summary>
+        /// <param name="metar"></param>
+        /// <returns></returns>
+        private static bool IsNotValidMetar(string metar)
+        {
+            if (metar.StartsWith("No METAR available"))
+                return true;
+            else
+                return false;
+        }
 
         #endregion
     }

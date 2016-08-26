@@ -3,22 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Xml.Linq;
 #if PCL
 using System.Threading.Tasks;
 #endif
 
 namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
 {
-    /// <summary>
-    /// This class is able to download metar from web OldLineWeather.
-    /// </summary>
-    /// <seealso cref="T:ENG.Metar.Downloader.IMetarRetrieve"/>
-    [Obsolete]
-    public class OldLineWeatherRetriever : IRetriever
+    public class AviationWeatherGovRetriever : IRetriever
     {
-        #region IMetarRetrieve Members
-
         /// <summary>
         /// Returns URL where METAR information is stored.
         /// </summary>
@@ -26,7 +19,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// <returns></returns>
         public string GetUrlForICAO(string icao)
         {
-            return "http://www.oldlineweather.com/wxmetar.php?station=" + icao.ToUpper();
+            return "https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=24&fields=raw_text&mostRecent=true&stationString="+icao;
         }
 
 #if PCL
@@ -43,23 +36,15 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// </exception>
         public async Task<string> DecodeWMOCodeAsync(Stream sourceStream)
         {
-            string ret = null;
-
-            var rdr = new StreamReader(sourceStream);
-            string pom = await rdr.ReadToEndAsync().ConfigureAwait(false);
-            rdr = null;
-
-            string rgx = @"METAR = (([A-Z]|[0-9]|/|[+\-]| )+)";
-
-            Match m = Regex.Match(pom, rgx);
-            if (m.Success)
-                ret = m.Groups[1].Value;
-            else
-                throw new DownloadException("Unable to decode information from page. Incorrect ICAO?");
-
-            ret = "METAR " + ret;
-
-            return ret;
+            StreamReader reader = new StreamReader(sourceStream);
+            XDocument document = XDocument.Load(reader);
+            string report = document.Root
+                .Elements("data")
+                .Elements("METAR")
+                .Elements("raw_text")
+                .First()
+                .Value;
+            return "METAR " + report;
         }
 
 #else
@@ -71,29 +56,19 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// <param name="sourceStream">Source stream, from which the metar will be obtained.</param>
         /// <returns>Metar string.</returns>
         /// <exception cref="DownloadException">Returns if anything fails. Inner exception should contain more accurate info.</exception>
-        public string DecodeWMOCode(System.IO.Stream sourceStream)
+        public string DecodeWMOCode(Stream sourceStream)
         {
-            string ret = null;
-
-            System.IO.StreamReader rdr = new System.IO.StreamReader(sourceStream);
-            string pom = rdr.ReadToEnd();
-            rdr = null;
-
-            string rgx = @"METAR = (([A-Z]|[0-9]|/|[+\-]| )+)";
-
-            Match m = Regex.Match(pom, rgx);
-            if (m.Success)
-                ret = m.Groups[1].Value;
-            else
-                throw new DownloadException("Unable to decode information from page. Incorrect ICAO?");
-
-            ret = "METAR " + ret;
-
-            return ret;
+            StreamReader reader = new StreamReader(sourceStream);
+            XDocument document = XDocument.Load(reader);
+            string report = document.Root
+                .Elements("data")
+                .Elements("METAR")
+                .Elements("raw_text")
+                .First()
+                .Value;
+            return "METAR " + report;
         }
 
 #endif
-
-        #endregion
     }
 }

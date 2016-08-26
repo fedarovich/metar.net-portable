@@ -52,6 +52,9 @@
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\RetrieveResult.cs">
       <Link>RetrieveResult.cs</Link>
     </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\AviationWeatherGovRetriever.cs">
+      <Link>Retrievers\METAR\AviationWeatherGovRetriever.cs</Link>
+    </Compile>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\NoaaGovRetriever.cs">
       <Link>Retrievers\METAR\NoaaGovRetriever.cs</Link>
     </Compile>
@@ -60,6 +63,9 @@
     </Compile>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\USAS1VatsimRetriever.cs">
       <Link>Retrievers\METAR\USAS1VatsimRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\VatsimRetriever.cs">
+      <Link>Retrievers\METAR\VatsimRetriever.cs</Link>
     </Compile>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\TAF\NoaaGovRetriever.cs">
       <Link>Retrievers\TAF\NoaaGovRetriever.cs</Link>

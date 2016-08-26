@@ -13,7 +13,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile328</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile336</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,6 +32,7 @@
     <DefineConstants>TRACE;PCL</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ENG.WMOCodes.Downloaders.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
@@ -50,6 +51,9 @@
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\RetrieveResult.cs">
       <Link>RetrieveResult.cs</Link>
     </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\AviationWeatherGovRetriever.cs">
+      <Link>Retrievers\METAR\AviationWeatherGovRetriever.cs</Link>
+    </Compile>
     <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\metar\NoaaGovRetriever.cs">
       <Link>Retrievers\METAR\NoaaGovRetriever.cs</Link>
     </Compile>
@@ -58,6 +62,9 @@
     </Compile>
     <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\metar\USAS1VatsimRetriever.cs">
       <Link>Retrievers\METAR\USAS1VatsimRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\VatsimRetriever.cs">
+      <Link>Retrievers\METAR\VatsimRetriever.cs</Link>
     </Compile>
     <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\taf\NoaaGovRetriever.cs">
       <Link>Retrievers\TAF\NoaaGovRetriever.cs</Link>

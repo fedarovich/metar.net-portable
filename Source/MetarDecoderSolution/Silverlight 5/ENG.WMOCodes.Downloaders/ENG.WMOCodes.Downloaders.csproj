@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Net" />
     <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Downloader.cs">
@@ -72,6 +73,9 @@
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\RetrieveResult.cs">
       <Link>RetrieveResult.cs</Link>
     </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\AviationWeatherGovRetriever.cs">
+      <Link>Retrievers\METAR\AviationWeatherGovRetriever.cs</Link>
+    </Compile>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\NoaaGovRetriever.cs">
       <Link>Retrievers\METAR\NoaaGovRetriever.cs</Link>
     </Compile>
@@ -80,6 +84,9 @@
     </Compile>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\USAS1VatsimRetriever.cs">
       <Link>Retrievers\METAR\USAS1VatsimRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\VatsimRetriever.cs">
+      <Link>Retrievers\METAR\VatsimRetriever.cs</Link>
     </Compile>
     <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\TAF\NoaaGovRetriever.cs">
       <Link>Retrievers\TAF\NoaaGovRetriever.cs</Link>

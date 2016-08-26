@@ -24,7 +24,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// <returns></returns>
         public string GetUrlForICAO(string icao)
         {
-            return "http://weather.noaa.gov/pub/data/observations/metar/stations/" + icao.ToUpper() + ".TXT";
+            return "http://tgftp.nws.noaa.gov/data/observations/metar/stations/" + icao.ToUpper() + ".TXT";
         }
 
 #if PCL

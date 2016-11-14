@@ -43,17 +43,7 @@
     <Compile Include="..\..\Include\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
     </Compile>
-    <Compile Include="Downloader.cs" />
-    <Compile Include="DownloadException.cs" />
-    <Compile Include="IRetriever.cs" />
-    <Compile Include="RetrieveResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Retrievers\METAR\AviationWeatherGovRetriever.cs" />
-    <Compile Include="Retrievers\METAR\NoaaGovRetriever.cs" />
-    <Compile Include="Retrievers\METAR\OldLineWeatherRetriever.cs" />
-    <Compile Include="Retrievers\METAR\USAS1VatsimRetriever.cs" />
-    <Compile Include="Retrievers\METAR\VatsimRetriever.cs" />
-    <Compile Include="Retrievers\TAF\NoaaGovRetriever.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj">
@@ -61,6 +51,7 @@
       <Name>ENG.WMOCodes</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\..\Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

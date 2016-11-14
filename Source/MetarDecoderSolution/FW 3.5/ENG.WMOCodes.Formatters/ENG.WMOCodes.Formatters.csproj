@@ -43,8 +43,6 @@
     <Compile Include="..\..\Include\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
     </Compile>
-    <Compile Include="IMetarFormatter.cs" />
-    <Compile Include="ITafFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +51,7 @@
       <Name>ENG.WMOCodes</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\..\Shared\ENG.WMOCodes.Formatters\ENG.WMOCodes.Formatters.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

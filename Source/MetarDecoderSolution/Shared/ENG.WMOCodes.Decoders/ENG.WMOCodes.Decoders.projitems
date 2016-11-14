@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a5efc26b-544c-4529-aa06-4815e7a5858a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ENG.WMOCodes.Decoders</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\DecodeException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\AMDDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\AUTODecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Basic\CustomDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Basic\InternalDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Basic\PublicDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Basic\TypeDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\CloudInfoDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\CloudInfoWithNCDDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\CNLDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\CORDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\DayHourDayHourDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\DayHourMinuteDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\DewPointDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\ICAODecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\ICAOWithNumbersDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\MetarPrefixDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\NILDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\PhenomInfoDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\PhenomInfoWithNSWDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\PressureInfoDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\RemarkDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\RePhenomInfoDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\RunwayConditionDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\RunwayConditionInfoDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\RunwayVisibilityDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\RunwayVisibilityListDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\SeaStateDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\SeaSurfaceTemperatureDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TafPrefixDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TemperatureDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TNDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TrendInfoForMetarDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TrendInfoForTafDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TrendInfoForTafListDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TrendReportDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TXDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\VisibilityDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\VisibilityForMetarDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\WindDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\WindShearDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\WindShearInfoDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\WindVariableDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\WindWithVariabilityDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MetarDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MetarDecoderWithAllOptional.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TafDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_Extensions.cs" />
+  </ItemGroup>
+</Project>

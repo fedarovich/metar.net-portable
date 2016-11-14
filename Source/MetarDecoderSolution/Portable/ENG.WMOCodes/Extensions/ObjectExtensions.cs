@@ -7,15 +7,8 @@ using System.Text;
 
 namespace ENG.WMOCodes.Extensions
 {
-    internal static class ObjectExtensions
+    internal static partial class ObjectExtensions
     {
-        private static int callIndex = 0;
-        private const string NULL = "(null)";
-        private const string INTENDER = "  ";
-        private const string DEFAULT_ENCAPSULATING_TAG = "This";
-        private const string DEFAULT_ENUMERATIONITEM_TAG = "Item";
-        private const string DEFAULT_NULL_TAGITEM = "(null)";
-
         public static string ToInlineInfoString(this object obj)
         {
             ++callIndex;

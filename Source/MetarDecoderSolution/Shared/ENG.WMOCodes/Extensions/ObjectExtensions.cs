@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ENG.WMOCodes.Extensions
 {
-    internal static class ObjectExtensions
+    internal static partial class ObjectExtensions
     {
         private static int callIndex = 0;
         private const string NULL = "(null)";
@@ -16,6 +16,7 @@ namespace ENG.WMOCodes.Extensions
         private const string DEFAULT_ENUMERATIONITEM_TAG = "Item";
         private const string DEFAULT_NULL_TAGITEM = "(null)";
 
+#if !PCL
         public static string ToInlineInfoString(this object obj)
         {
             ++callIndex;
@@ -75,5 +76,6 @@ namespace ENG.WMOCodes.Extensions
             }
             return builder.ToString();
         }
+#endif
     }
 }

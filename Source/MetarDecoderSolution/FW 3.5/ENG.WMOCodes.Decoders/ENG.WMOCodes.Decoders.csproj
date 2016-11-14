@@ -43,55 +43,7 @@
     <Compile Include="..\..\Include\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
     </Compile>
-    <Compile Include="Exceptions\DecodeException.cs" />
-    <Compile Include="Internal\AMDDecoder.cs" />
-    <Compile Include="Internal\AUTODecoder.cs" />
-    <Compile Include="Internal\Basic\CustomDecoder.cs" />
-    <Compile Include="Internal\Basic\InternalDecoder.cs" />
-    <Compile Include="Internal\Basic\PublicDecoder.cs" />
-    <Compile Include="Internal\Basic\TypeDecoder.cs" />
-    <Compile Include="Internal\CloudInfoDecoder.cs" />
-    <Compile Include="Internal\CloudInfoWithNCDDecoder.cs" />
-    <Compile Include="Internal\CNLDecoder.cs" />
-    <Compile Include="Internal\CORDecoder.cs" />
-    <Compile Include="Internal\DayHourDayHourDecoder.cs" />
-    <Compile Include="Internal\DayHourMinuteDecoder.cs" />
-    <Compile Include="Internal\DewPointDecoder.cs" />
-    <Compile Include="Internal\ICAODecoder.cs" />
-    <Compile Include="Internal\ICAOWithNumbersDecoder.cs" />
-    <Compile Include="Internal\MetarPrefixDecoder.cs" />
-    <Compile Include="Internal\NILDecoder.cs" />
-    <Compile Include="Internal\PhenomInfoDecoder.cs" />
-    <Compile Include="Internal\PressureInfoDecoder.cs" />
-    <Compile Include="Internal\RemarkDecoder.cs" />
-    <Compile Include="Internal\RePhenomInfoDecoder.cs" />
-    <Compile Include="Internal\RunwayConditionDecoder.cs" />
-    <Compile Include="Internal\RunwayConditionInfoDecoder.cs" />
-    <Compile Include="Internal\RunwayVisibilityListDecoder.cs" />
-    <Compile Include="Internal\RunwayVisibilityDecoder.cs" />
-    <Compile Include="Internal\SeaStateDecoder.cs" />
-    <Compile Include="Internal\SeaSurfaceTemperatureDecoder.cs" />
-    <Compile Include="Internal\TafPrefixDecoder.cs" />
-    <Compile Include="Internal\TrendInfoForTafDecoder.cs" />
-    <Compile Include="Internal\TrendInfoForTafListDecoder.cs" />
-    <Compile Include="Internal\TemperatureDecoder.cs" />
-    <Compile Include="Internal\TNDecoder.cs" />
-    <Compile Include="Internal\TrendInfoForMetarDecoder.cs" />
-    <Compile Include="Internal\PhenomInfoWithNSWDecoder.cs" />
-    <Compile Include="Internal\TrendReportDecoder.cs" />
-    <Compile Include="Internal\VisibilityDecoder.cs" />
-    <Compile Include="Internal\TXDecoder.cs" />
-    <Compile Include="Internal\VisibilityForMetarDecoder.cs" />
-    <Compile Include="Internal\WindDecoder.cs" />
-    <Compile Include="Internal\WindShearDecoder.cs" />
-    <Compile Include="Internal\WindShearInfoDecoder.cs" />
-    <Compile Include="Internal\WindVariableDecoder.cs" />
-    <Compile Include="Internal\WindWithVariabilityDecoder.cs" />
-    <Compile Include="MetarDecoder.cs" />
-    <Compile Include="MetarDecoderWithAllOptional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TafDecoder.cs" />
-    <Compile Include="_Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Overview.cd" />
@@ -102,6 +54,7 @@
       <Name>ENG.WMOCodes</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\..\Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

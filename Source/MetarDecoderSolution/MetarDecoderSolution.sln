@@ -45,7 +45,35 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Downloaders", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Formatters", "Portable\ENG.WMOCodes.Formatters\ENG.WMOCodes.Formatters.csproj", "{77195DF9-1485-448A-B259-E7DD4A0296CE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{4CF0E0C1-78D3-4D0A-9ED4-46F0C017FA5B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ENG.WMOCodes", "Shared\ENG.WMOCodes\ENG.WMOCodes.shproj", "{5C165F24-FEAD-42DD-9FB7-A266C2826897}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ENG.WMOCodes.Decoders", "Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.shproj", "{A5EFC26B-544C-4529-AA06-4815E7A5858A}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ENG.WMOCodes.Downloaders", "Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.shproj", "{7D02E7F8-893D-4800-B522-B3ABE9E88914}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ENG.WMOCodes.Formatters", "Shared\ENG.WMOCodes.Formatters\ENG.WMOCodes.Formatters.shproj", "{7DC280AE-AD07-4FE7-9623-9B1323F94BA9}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shared\ENG.WMOCodes\ENG.WMOCodes.projitems*{119fcacd-c111-495c-bca9-fc332ee88d74}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Formatters\ENG.WMOCodes.Formatters.projitems*{24cdc47c-7db6-4bfa-9392-50c1d0777928}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes\ENG.WMOCodes.projitems*{2812ccf5-445b-42f6-a2a9-e9c10b9beed0}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.projitems*{2cd3fb96-1955-4035-bc50-66800c84c3be}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.projitems*{4b872b03-a17b-4c70-baf5-7b5105397719}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes\ENG.WMOCodes.projitems*{5c165f24-fead-42dd-9fb7-a266c2826897}*SharedItemsImports = 13
+		Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems*{5d46b4c3-3cbd-4f70-b92b-710ca65cdb70}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Formatters\ENG.WMOCodes.Formatters.projitems*{77195df9-1485-448a-b259-e7dd4a0296ce}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems*{7d02e7f8-893d-4800-b522-b3abe9e88914}*SharedItemsImports = 13
+		Shared\ENG.WMOCodes.Formatters\ENG.WMOCodes.Formatters.projitems*{7dc280ae-ad07-4fe7-9623-9b1323f94ba9}*SharedItemsImports = 13
+		Shared\ENG.WMOCodes\ENG.WMOCodes.projitems*{93d1406a-018a-4096-81d6-529f67fadb15}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.projitems*{a5efc26b-544c-4529-aa06-4815e7a5858a}*SharedItemsImports = 13
+		Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems*{b6cbcf4e-f45b-4aa9-a656-04a18dcc83fd}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.projitems*{ba10518e-40c0-4c13-9007-11b4c225a295}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Formatters\ENG.WMOCodes.Formatters.projitems*{c9817849-7a1d-411d-af88-6663695191e3}*SharedItemsImports = 4
+		Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems*{e05d55ff-04a1-40ab-bb7f-b07188b6ccd5}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -244,6 +272,10 @@ Global
 		{4B872B03-A17B-4C70-BAF5-7B5105397719} = {7724F17B-9536-4B7A-A344-0E064C726152}
 		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5} = {7724F17B-9536-4B7A-A344-0E064C726152}
 		{77195DF9-1485-448A-B259-E7DD4A0296CE} = {7724F17B-9536-4B7A-A344-0E064C726152}
+		{5C165F24-FEAD-42DD-9FB7-A266C2826897} = {4CF0E0C1-78D3-4D0A-9ED4-46F0C017FA5B}
+		{A5EFC26B-544C-4529-AA06-4815E7A5858A} = {4CF0E0C1-78D3-4D0A-9ED4-46F0C017FA5B}
+		{7D02E7F8-893D-4800-B522-B3ABE9E88914} = {4CF0E0C1-78D3-4D0A-9ED4-46F0C017FA5B}
+		{7DC280AE-AD07-4FE7-9623-9B1323F94BA9} = {4CF0E0C1-78D3-4D0A-9ED4-46F0C017FA5B}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetarDecoderSolution.vsmdi

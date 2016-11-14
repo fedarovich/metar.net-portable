@@ -42,33 +42,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\DownloadException.cs">
-      <Link>DownloadException.cs</Link>
-    </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\IRetriever.cs">
-      <Link>IRetriever.cs</Link>
-    </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\RetrieveResult.cs">
-      <Link>RetrieveResult.cs</Link>
-    </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\AviationWeatherGovRetriever.cs">
-      <Link>Retrievers\METAR\AviationWeatherGovRetriever.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\metar\NoaaGovRetriever.cs">
-      <Link>Retrievers\METAR\NoaaGovRetriever.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\metar\OldLineWeatherRetriever.cs">
-      <Link>Retrievers\METAR\OldLineWeatherRetriever.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\metar\USAS1VatsimRetriever.cs">
-      <Link>Retrievers\METAR\USAS1VatsimRetriever.cs</Link>
-    </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Downloaders\Retrievers\METAR\VatsimRetriever.cs">
-      <Link>Retrievers\METAR\VatsimRetriever.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fw 3.5\eng.wmocodes.downloaders\retrievers\taf\NoaaGovRetriever.cs">
-      <Link>Retrievers\TAF\NoaaGovRetriever.cs</Link>
-    </Compile>
     <Compile Include="..\..\Include\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
     </Compile>
@@ -112,6 +85,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <Import Project="..\..\Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

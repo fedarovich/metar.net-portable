@@ -16,7 +16,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Taf
     {
         #region IRetriever Members
 
-        private const string url = @"http://weather.noaa.gov/pub/data/forecasts/taf/stations/";
+        private const string url = @"http://tgftp.nws.noaa.gov/data/forecasts/taf/stations/";
         /// <summary>
         /// Returns URL where Code information is stored.
         /// </summary>

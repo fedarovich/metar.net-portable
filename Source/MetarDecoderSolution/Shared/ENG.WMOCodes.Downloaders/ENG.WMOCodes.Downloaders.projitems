@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>7d02e7f8-893d-4800-b522-b3abe9e88914</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ENG.WMOCodes.Downloaders</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Downloader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DownloadException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RetrieveResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\AviationWeatherGovRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\NoaaGovRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\OldLineWeatherRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\USAS1VatsimRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\VatsimRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\TAF\NoaaGovRetriever.cs" />
+  </ItemGroup>
+</Project>

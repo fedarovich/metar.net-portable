@@ -60,14 +60,14 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Formatters\IMetarFormatter.cs">
-      <Link>IMetarFormatter.cs</Link>
-    </Compile>
-    <Compile Include="..\..\FW 3.5\ENG.WMOCodes.Formatters\ITafFormatter.cs">
-      <Link>ITafFormatter.cs</Link>
-    </Compile>
     <Compile Include="..\..\Include\AssemblyInfoShared.cs">
       <Link>Properties\AssemblyInfoShared.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shared\ENG.WMOCodes.Formatters\IMetarFormatter.cs">
+      <Link>IMetarFormatter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shared\ENG.WMOCodes.Formatters\ITafFormatter.cs">
+      <Link>ITafFormatter.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

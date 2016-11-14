@@ -15,7 +15,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
     /// <seealso cref="T:ENG.Metar.Downloader.IMetarRetrieve"/>
     public class NoaaGovRetriever : IRetriever
     {
-        #region IMetarRetrieve Members
+        #region IRetriever Members
 
         /// <summary>
         /// Returns URL where METAR information is stored.

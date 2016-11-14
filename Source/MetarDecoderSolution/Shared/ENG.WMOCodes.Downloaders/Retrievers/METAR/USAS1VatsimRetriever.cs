@@ -14,7 +14,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
     /// Downloaded metar is associated to VATSIM online network, and can differ
     /// significantly from real weather.
     /// </summary>  
-    [Obsolete("Use ENG.WMOCodes.Downloaders.Retrievers.METAR.VatsimRetriever instead.")]
+    [Obsolete("The service in not available. Use ENG.WMOCodes.Downloaders.Retrievers.Metar.VatsimRetriever instead.")]
     public class USAS1VatsimRetriever : IRetriever
     {
         /// <summary>
@@ -22,7 +22,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// </summary>
         private const string SOURCE = "http://usa-s1.vatsim.net/data/metar.php?id=";
 
-        #region IMetarRetrieve Members
+        #region IRetriever Members
 
         /// <summary>
         /// Returns URL where METAR information is stored.

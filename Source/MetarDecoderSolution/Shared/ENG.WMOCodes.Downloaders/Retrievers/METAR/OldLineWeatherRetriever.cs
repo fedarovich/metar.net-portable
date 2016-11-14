@@ -14,10 +14,10 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
     /// This class is able to download metar from web OldLineWeather.
     /// </summary>
     /// <seealso cref="T:ENG.Metar.Downloader.IMetarRetrieve"/>
-    [Obsolete]
+    [Obsolete("The service in not available.")]
     public class OldLineWeatherRetriever : IRetriever
     {
-        #region IMetarRetrieve Members
+        #region IRetriever Members
 
         /// <summary>
         /// Returns URL where METAR information is stored.

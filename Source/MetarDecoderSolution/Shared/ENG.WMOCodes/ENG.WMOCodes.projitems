@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Codes\Metar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Codes\Taf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ComparableExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\EnumerableExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ObjectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringBuilderExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Types\Basic\ICodeItem.cs" />

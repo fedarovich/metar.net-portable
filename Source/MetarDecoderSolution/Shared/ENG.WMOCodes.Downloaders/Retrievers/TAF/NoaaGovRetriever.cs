@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-#if PCL
 using System.Threading.Tasks;
-#endif
 
 namespace ENG.WMOCodes.Downloaders.Retrievers.Taf
 {
@@ -26,8 +24,6 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Taf
         {
             return url + icao.ToUpper() + ".TXT";
         }
-
-#if PCL
 
         /// <summary>
         /// Decodes code as string from stream asynchronously. 
@@ -54,35 +50,6 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Taf
 
             return ret.ToString();
         }
-
-#else
-
-        /// <summary>
-        /// Decodes code as string from stream. Stream should be downloaded from URL address obtained
-        /// from GetUrlForICAO() method. <seealso cref="GetUrlForICAO"/>.
-        /// </summary>
-        /// <param name="sourceStream">Source stream, from which the metar will be obtained.</param>
-        /// <returns>Code string.</returns>
-        /// <exception cref="DownloadException">
-        /// Returns if anything fails. Inner exception should contain more accurate info.
-        /// </exception>
-        public string DecodeWMOCode(System.IO.Stream sourceStream)
-        {
-            StringBuilder ret = new StringBuilder();
-
-            System.IO.StreamReader rdr = new System.IO.StreamReader(sourceStream);
-            rdr.ReadLine();
-            string line = rdr.ReadLine();
-            while (line != null)
-            {
-                ret.Append(line + " ");
-                line = rdr.ReadLine();
-            }
-
-            return ret.ToString();
-        }
-
-#endif
 
         #endregion
     }

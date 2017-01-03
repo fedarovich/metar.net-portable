@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-#if PCL
 using System.Threading.Tasks;
-#endif
 
 namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
 {
@@ -33,8 +31,6 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
             return SOURCE + icao.ToUpper();
         }
 
-#if PCL
-
         /// <summary>
         /// Decodes code as string from stream asynchronously. 
         /// Stream should be downloaded from URL address obtained 
@@ -57,32 +53,6 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
             return "METAR " + metar;
         }
 
-#else
-
-        /// <summary>
-        /// Decodes metar from stream. Stream should be downloaded from URL address obtained 
-        /// from GetUrlForICAO() method. <seealso cref="GetUrlForICAO"/>.
-        /// </summary>
-        /// <param name="sourceStream">Source stream, from which the metar will be obtained.</param>
-        /// <returns>Metar string.</returns>
-        /// <exception cref="DownloadException">
-        /// Returns if anything fails. Inner exception should contain more accurate info.
-        /// </exception>
-        ///     
-        public string DecodeWMOCode(System.IO.Stream sourceStream)
-        {
-            StreamReader str = new StreamReader(sourceStream);
-
-            string metar = str.ReadToEnd();
-
-            if (IsNotValidMetar(metar))
-                throw new Exception("Invalid icao code.");
-
-            return "METAR " + metar;
-        }
-
-#endif
-
         /// <summary>
         /// Checks if metar is valid.
         /// </summary>
@@ -97,31 +67,5 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         }
 
         #endregion
-    }
-}
-
-namespace ENG.WMOCodes.Downloaders.Retrievers.METAR
-{
-    /// <summary>
-    /// This class is able to download metar from usa vatsim network source.
-    /// Downloaded metar is associated to VATSIM online network, and can differ
-    /// significantly from real weather.
-    /// </summary>
-    /// <remarks>
-    /// This class was placed by mistake in the wrong namespace. 
-    /// Use <see cref="Metar.VatsimRetriever"/> instead.
-    /// </remarks>
-    [Obsolete("Use ENG.WMOCodes.Downloaders.Retrievers.Metar.VatsimRetriever instead.")]
-    public class VatsimRetriever : IRetriever
-    {
-        private readonly Metar.VatsimRetriever retriever = new Metar.VatsimRetriever();
-
-        public string GetUrlForICAO(string icao) => retriever.GetUrlForICAO(icao);
-        
-#if PCL
-        public Task<string> DecodeWMOCodeAsync(Stream sourceStream) => retriever.DecodeWMOCodeAsync(sourceStream);
-#else
-        public string DecodeWMOCode(Stream sourceStream) => retriever.DecodeWMOCode(sourceStream);
-#endif
     }
 }

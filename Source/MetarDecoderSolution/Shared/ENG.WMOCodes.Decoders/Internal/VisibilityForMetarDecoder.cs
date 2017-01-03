@@ -10,21 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class VisibilityForMetarDecoder : TypeDecoder<VisibilityForMetar>
   {
-    public override string Description
-    {
-      get { return "Visibility"; }
-    }
+    public override string Description => "Visibility";
 
-    public override string RegEx
-    {
-      get
-      {
-        return
-          @"^((CAVOK)|(SKC)|((\d{4})(NE|SW|NW|SE|N|E|S|W)?( (\d{4})(N|NE|E|SE|S|SW|W|NW))?)|(((M)?|(\d+) )(\d+)(/(\d\d?))?SM))";
-      }
-    }
+      public override string RegEx => @"^((CAVOK)|(SKC)|((\d{4})(NE|SW|NW|SE|N|E|S|W)?( (\d{4})(N|NE|E|SE|S|SW|W|NW))?)|(((M)?|(\d+) )(\d+)(/(\d\d?))?SM))";
 
-    protected override VisibilityForMetar _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override VisibilityForMetar _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       VisibilityForMetar ret = new VisibilityForMetar();
 

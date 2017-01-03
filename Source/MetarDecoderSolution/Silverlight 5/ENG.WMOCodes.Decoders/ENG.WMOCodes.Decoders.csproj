@@ -66,6 +66,9 @@
     <Compile Include="..\..\Shared\ENG.WMOCodes.Decoders\Exceptions\DecodeException.cs">
       <Link>Exceptions\DecodeException.cs</Link>
     </Compile>
+    <Compile Include="..\..\Shared\ENG.WMOCodes.Decoders\IDecoder.cs">
+      <Link>IDecoder.cs</Link>
+    </Compile>
     <Compile Include="..\..\Shared\ENG.WMOCodes.Decoders\Internal\AMDDecoder.cs">
       <Link>Internal\AMDDecoder.cs</Link>
     </Compile>

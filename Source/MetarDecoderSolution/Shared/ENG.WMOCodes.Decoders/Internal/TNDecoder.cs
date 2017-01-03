@@ -10,17 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class TNDecoder : TypeDecoder<TemperatureExtremeTN>
   {
-    public override string Description
-    {
-      get { return "TAF TN"; }
-    }
+    public override string Description => "TAF TN";
 
-    public override string RegEx
-    {
-      get { return @"^TN(M)?(\d{2})/(\d{2})(\d{2})Z"; }
-    }
+      public override string RegEx => @"^TN(M)?(\d{2})/(\d{2})(\d{2})Z";
 
-    protected override TemperatureExtremeTN _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override TemperatureExtremeTN _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       TemperatureExtremeTN ret = new TemperatureExtremeTN();
 

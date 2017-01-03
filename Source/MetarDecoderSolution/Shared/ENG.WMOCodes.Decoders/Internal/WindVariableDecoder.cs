@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class WindVariableDecoder : TypeDecoder<WindVariable>
   {
-    public override string Description
-    {
-      get { return "Wind variability"; }
-    }
+    public override string Description => "Wind variability";
 
-    public override string RegEx
-    {
-      get { return @"^((\d{3})V(\d{3}))"; }
-    }
+      public override string RegEx => @"^((\d{3})V(\d{3}))";
 
-    protected override WindVariable _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override WindVariable _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       WindVariable ret = new WindVariable();
 

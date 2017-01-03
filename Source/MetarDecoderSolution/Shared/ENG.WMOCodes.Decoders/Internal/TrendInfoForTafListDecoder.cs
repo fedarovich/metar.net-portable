@@ -10,17 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class TrendInfoForTafListDecoder : CustomDecoder<List<TrendInfoForTaf>>
   {
-    public override string Description
-    {
-      get { return "Trend/Tempo/Becoming sets"; }
-    }
+    public override string Description => "Trend/Tempo/Becoming sets";
 
-    public string regexPattern
-    {
-      get { return "(^TEMPO)|(^BECMG)|(^FM)|(^PROB40)|(^PROB30)"; }
-    }
+      public string regexPattern => "(^TEMPO)|(^BECMG)|(^FM)|(^PROB40)|(^PROB30)";
 
-    protected override List<TrendInfoForTaf> _Decode(ref string source)
+      protected override List<TrendInfoForTaf> _Decode(ref string source)
     {
       List<TrendInfoForTaf> ret = new List<TrendInfoForTaf>();
       TrendInfoForTaf report = null;

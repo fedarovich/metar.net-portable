@@ -10,19 +10,13 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class PhenomInfoDecoder : TypeDecoder<PhenomInfo>
   {
-    public override string Description
-    {
-      get { return "Phenomens"; }
-    }
+    public override string Description => "Phenomens";
 
-    private const string R_PHENOM_ITEM = @"(\-|\+| |VC|MI|BC|PR(?!OB)|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|IC|PL|GR|GS|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS)";
+      private const string R_PHENOM_ITEM = @"(\-|\+| |VC|MI|BC|PR(?!OB)|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|IC|PL|GR|GS|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS)";
 
-    public override string RegEx
-    {
-      get { return @"(^" + R_PHENOM_ITEM + "+)"; }
-    }
+    public override string RegEx => @"(^" + R_PHENOM_ITEM + "+)";
 
-    protected override PhenomInfo _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override PhenomInfo _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       PhenomInfo ret = null;
 

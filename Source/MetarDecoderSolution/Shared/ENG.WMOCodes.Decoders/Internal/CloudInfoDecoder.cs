@@ -10,22 +10,12 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class CloudInfoDecoder : TypeDecoder<CloudInfo>
   {
-    public override string Description
-    {
-      get { return "Cloud information"; }
-    }
+    public override string Description => "Cloud information";
 
-    private const string R_CLOUD_ITEM = @"( ?(FEW|SCT|BKN|OVC)(\d{3})(CB|TCU)?/*)";
-    public override string RegEx
-    {
-      get
-      {
-        return
-          @"^((NSC)|(SKC)|(CLR)|VV((\d{3})|/{3})|" + R_CLOUD_ITEM + "+)";
-      }
-    }
+      private const string R_CLOUD_ITEM = @"( ?(FEW|SCT|BKN|OVC)(\d{3})(CB|TCU)?/*)";
+    public override string RegEx => @"^((NSC)|(SKC)|(CLR)|VV((\d{3})|/{3})|" + R_CLOUD_ITEM + "+)";
 
-    protected override CloudInfo _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override CloudInfo _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       CloudInfo ret = null;
 

@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   internal class CORDecoder : TypeDecoder<bool>
   {
-    public override string Description
-    {
-      get { return "COR - correction"; }
-    }
+    public override string Description => "COR - correction";
 
-    public override string RegEx
-    {
-      get { return "^COR"; }
-    }
+      public override string RegEx => "^COR";
 
-    protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       return true;
     }

@@ -31,9 +31,6 @@ namespace ENG.WMOCodes.Decoders.Internal
       return ret;
     }
 
-    public override string Description
-    {
-      get { return "Recent phenomens"; }
-    }
+    public override string Description => "Recent phenomens";
   }
 }

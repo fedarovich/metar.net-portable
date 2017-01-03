@@ -33,9 +33,6 @@ namespace ENG.WMOCodes.Decoders.Internal
       return ret;
     }
 
-    public override string Description
-    {
-      get { return "Wind with variability"; }
-    }
+    public override string Description => "Wind with variability";
   }
 }

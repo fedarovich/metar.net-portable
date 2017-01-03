@@ -10,17 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class SeaStateDecoder : TypeDecoder<Common.eSeaState?>
   {
-    public override string Description
-    {
-      get { return "Sea state"; }
-    }
+    public override string Description => "Sea state";
 
-    public override string RegEx
-    {
-      get { return @"^/(\d{2})"; }
-    }
+      public override string RegEx => @"^/(\d{2})";
 
-    protected override Common.eSeaState? _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override Common.eSeaState? _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       int pom = groups[1].GetIntValue();
 

@@ -14,7 +14,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
     /// Downloaded metar is associated to VATSIM online network, and can differ
     /// significantly from real weather.
     /// </summary>  
-    [Obsolete("The service in not available. Use ENG.WMOCodes.Downloaders.Retrievers.Metar.VatsimRetriever instead.")]
+    [Obsolete("The service in not available. Use ENG.WMOCodes.Downloaders.Retrievers.Metar.VatsimRetriever instead.", true)]
     public class USAS1VatsimRetriever : IRetriever
     {
         /// <summary>

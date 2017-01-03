@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   internal class CNLDecoder : TypeDecoder<bool>
   {
-    public override string Description
-    {
-      get { return "CNL - amended"; }
-    }
+    public override string Description => "CNL - amended";
 
-    public override string RegEx
-    {
-      get { return "^CNL"; }
-    }
+      public override string RegEx => "^CNL";
 
-    protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       return true;
     }

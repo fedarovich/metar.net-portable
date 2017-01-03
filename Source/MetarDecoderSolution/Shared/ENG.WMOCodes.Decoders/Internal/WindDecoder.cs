@@ -10,10 +10,10 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class WindDecoder : TypeDecoder<Wind>
   {
-    public override string Description { get { return "Wind"; } }
-    public override string RegEx { get { return @"^((\d{3}|VRB)(\d{2})(G(\d{2,3}))?(KT|MPS|KMH))"; } }
+    public override string Description => "Wind";
+      public override string RegEx => @"^((\d{3}|VRB)(\d{2})(G(\d{2,3}))?(KT|MPS|KMH))";
 
-    protected override Wind _Decode(GroupCollection grp)
+      protected override Wind _Decode(GroupCollection grp)
     {
       Wind ret = new Wind();
 

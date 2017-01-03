@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Exceptions\DecodeException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDecoder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\AMDDecoder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\AUTODecoder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Basic\CustomDecoder.cs" />

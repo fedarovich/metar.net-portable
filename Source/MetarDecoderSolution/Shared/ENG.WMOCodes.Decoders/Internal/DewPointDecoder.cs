@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class DewPointDecoder : TypeDecoder<int>
   {
-    public override string Description
-    {
-      get { return "Dew point"; }
-    }
+    public override string Description => "Dew point";
 
-    public override string RegEx
-    {
-      get { return @"/(M)?(\d{2})"; }
-    }
+      public override string RegEx => @"/(M)?(\d{2})";
 
-    protected override int _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override int _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       int ret = groups[2].GetIntValue();
 

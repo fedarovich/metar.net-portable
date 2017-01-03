@@ -18,15 +18,9 @@ namespace ENG.WMOCodes.Decoders.Internal
     /// Gets the description. Description should describe location where error occured.
     /// </summary>
     /// <value>The description.</value>
-    public string Description
-    {
-      get
-      {
-        return _Description;
-      }
-    }
+    public string Description => _Description;
 
-    /// <summary>
+      /// <summary>
     /// Initializes a new instance of the <see cref="DecodeException"/> class.
     /// </summary>
     /// <param name="decoderDescription">The decoder description. Description should describe location where error occured.</param>
@@ -64,15 +58,9 @@ namespace ENG.WMOCodes.Decoders.Internal
         /// <returns>
         /// The error message that explains the reason for the exception, or an empty string("").
         /// </returns>
-        public override string Message
-    {
-      get
-      {
-        return GenerateMessage();
-      }
-    }
+        public override string Message => GenerateMessage();
 
-    /// <summary>
+      /// <summary>
     /// Generates the message.
     /// </summary>
     /// <returns></returns>

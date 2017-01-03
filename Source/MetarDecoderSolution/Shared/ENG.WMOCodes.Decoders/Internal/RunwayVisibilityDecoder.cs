@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class RunwayVisibilityDecoder : TypeDecoder<RunwayVisibility>
   {
-    public override string Description
-    {
-      get { return "Runway visibility"; }
-    }
+    public override string Description => "Runway visibility";
 
-    public override string RegEx
-    {
-      get { return @"^(( ?R(\d{2}(R|L|C)?)/(M|P)?(\d{4})(V(\d{4}))?(FT|U|N|D)?))"; }
-    }
+      public override string RegEx => @"^(( ?R(\d{2}(R|L|C)?)/(M|P)?(\d{4})(V(\d{4}))?(FT|U|N|D)?))";
 
-    protected override RunwayVisibility _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override RunwayVisibility _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       RunwayVisibility ret = new RunwayVisibility();
 

@@ -10,17 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class TXDecoder : TypeDecoder<TemperatureExtremeTX>
   {
-    public override string Description
-    {
-      get { return "TAF TX"; }
-    }
+    public override string Description => "TAF TX";
 
-    public override string RegEx
-    {
-      get { return @"^TX(M)?(\d{2})/(\d{2})(\d{2})Z"; }
-    }
+      public override string RegEx => @"^TX(M)?(\d{2})/(\d{2})(\d{2})Z";
 
-    protected override TemperatureExtremeTX _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override TemperatureExtremeTX _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       TemperatureExtremeTX ret = new TemperatureExtremeTX();
 

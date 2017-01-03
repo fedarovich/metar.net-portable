@@ -10,17 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class DayHourDayHourDecoder : TypeDecoder<DayHourDayHour>
   {
-    public override string Description
-    {
-      get { return "TAF period"; }
-    }
+    public override string Description => "TAF period";
 
-    public override string RegEx
-    {
-      get { return @"((\d{2})(\d{2})/(\d{2})(\d{2}))"; }
-    }
+      public override string RegEx => @"((\d{2})(\d{2})/(\d{2})(\d{2}))";
 
-    protected override DayHourDayHour _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override DayHourDayHour _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       DayHourDayHour ret = null;
       

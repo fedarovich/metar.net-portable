@@ -36,9 +36,6 @@ namespace ENG.WMOCodes.Decoders.Internal
       return ret;
     }
 
-    public override string Description
-    {
-      get { return "Cloud info with NCD"; }
-    }
+    public override string Description => "Cloud info with NCD";
   }
 }

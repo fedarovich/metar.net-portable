@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class RemarkDecoder : TypeDecoder<string>
   {
-    public override string Description
-    {
-      get { return "Remark"; }
-    }
+    public override string Description => "Remark";
 
-    public override string RegEx
-    {
-      get { return "^RMK (.*)"; }
-    }
+      public override string RegEx => "^RMK (.*)";
 
-    protected override string _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override string _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       return groups[1].Value;
     }

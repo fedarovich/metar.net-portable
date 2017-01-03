@@ -40,9 +40,6 @@ namespace ENG.WMOCodes.Decoders.Internal
       return ret;
     }
 
-    public override string Description
-    {
-      get { return "Wind shears"; }
-    }
+    public override string Description => "Wind shears";
   }
 }

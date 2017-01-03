@@ -17,12 +17,9 @@ namespace ENG.WMOCodes.Decoders
     /// Gets the description.
     /// </summary>
     /// <value>The description.</value>
-    public override string Description
-    {
-      get { return "Whole METAR"; }
-    }
+    public override string Description => "Whole METAR";
 
-    /// <summary>
+      /// <summary>
     /// The descendant's implementation of the decoding function.
     /// </summary>
     /// <param name="source">Source string to decode.</param>

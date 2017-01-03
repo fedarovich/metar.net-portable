@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class ICAOWithNumbersDecoder : TypeDecoder<string>
   {
-    public override string Description
-    {
-      get { return "ICAO (with numbers)"; }
-    }
+    public override string Description => "ICAO (with numbers)";
 
-    public override string RegEx
-    {
-      get { return "[A-Z0-9]{4}"; }
-    }
+      public override string RegEx => "[A-Z0-9]{4}";
 
-    protected override string _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override string _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       string ret = groups[0].Value;
 

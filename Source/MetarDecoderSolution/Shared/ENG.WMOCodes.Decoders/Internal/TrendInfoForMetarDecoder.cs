@@ -82,9 +82,6 @@ namespace ENG.WMOCodes.Decoders.Internal
       return ret;
     }
 
-    public override string Description
-    {
-      get { return "METAR TREND"; }
-    }
+    public override string Description => "METAR TREND";
   }
 }

@@ -19,12 +19,9 @@ namespace ENG.WMOCodes.Decoders
     /// Gets the description.
     /// </summary>
     /// <value>The description.</value>
-    public override string Description
-    {
-      get { return "Whole METAR/SPECI with optional temperature"; }
-    }
+    public override string Description => "Whole METAR/SPECI with optional temperature";
 
-    /// <summary>
+      /// <summary>
     /// The descendant's implementation of the decoding function.
     /// </summary>
     /// <param name="source">Source string to decode.</param>

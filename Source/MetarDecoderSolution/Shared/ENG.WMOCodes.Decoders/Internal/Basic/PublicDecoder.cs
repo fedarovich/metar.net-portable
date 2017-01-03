@@ -9,7 +9,7 @@ namespace ENG.WMOCodes.Decoders.Internal.Basic
   /// Represents public decoder used to decode some type from the source string.
   /// </summary>
   /// <typeparam name="T">Resulting type</typeparam>
-  public abstract class PublicDecoder<T> 
+  public abstract class PublicDecoder<T> : IDecoder<T>
   {
     /// <summary>
     /// Description of the block. Used in exception management in case that error occurs.

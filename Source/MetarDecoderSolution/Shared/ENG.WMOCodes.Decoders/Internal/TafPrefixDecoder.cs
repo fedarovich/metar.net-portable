@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class TafPrefixDecoder : TypeDecoder<bool>
   {
-    public override string Description
-    {
-      get { return "TAF prefix"; }
-    }
+    public override string Description => "TAF prefix";
 
-    public override string RegEx
-    {
-      get { return "TAF"; }
-    }
+      public override string RegEx => "TAF";
 
-    protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       if (groups[0].Success)
         return true;

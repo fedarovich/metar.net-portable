@@ -10,19 +10,13 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class PhenomInfoWithNSWDecoder : TypeDecoder<PhenomInfoWithNSW>
   {
-    public override string Description
-    {
-      get { return "Trend phenomens"; }
-    }
+    public override string Description => "Trend phenomens";
 
-    private const string R_PHENOM_ITEM = @"(\-|\+| |VC|MI|BC|PR(?!OB)|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|IC|PL|GR|GS|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS)";
+      private const string R_PHENOM_ITEM = @"(\-|\+| |VC|MI|BC|PR(?!OB)|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|IC|PL|GR|GS|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS)";
 
-    public override string RegEx
-    {
-      get { return @"(^NSW)|(^" + R_PHENOM_ITEM + "+)"; }
-    }
+    public override string RegEx => @"(^NSW)|(^" + R_PHENOM_ITEM + "+)";
 
-    protected override PhenomInfoWithNSW _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override PhenomInfoWithNSW _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       PhenomInfoWithNSW ret = null;
 

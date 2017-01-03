@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   internal class NILDecoder : TypeDecoder<bool>
   {
-    public override string Description
-    {
-      get { return "NIL - nil report"; }
-    }
+    public override string Description => "NIL - nil report";
 
-    public override string RegEx
-    {
-      get { return "^NIL"; }
-    }
+      public override string RegEx => "^NIL";
 
-    protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       return true;
     }

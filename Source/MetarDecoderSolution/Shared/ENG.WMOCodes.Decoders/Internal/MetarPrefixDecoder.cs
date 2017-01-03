@@ -10,17 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class MetarPrefixDecoder : TypeDecoder<Metar.eType>
   {
-    public override string Description
-    {
-      get { return "METAR/SPECI prefix"; }
-    }
+    public override string Description => "METAR/SPECI prefix";
 
-    public override string RegEx
-    {
-      get { return "(^METAR)|(^SPECI)"; }
-    }
+      public override string RegEx => "(^METAR)|(^SPECI)";
 
-    protected override Metar.eType _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override Metar.eType _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       Metar.eType ret;
       if (groups[1].Success)

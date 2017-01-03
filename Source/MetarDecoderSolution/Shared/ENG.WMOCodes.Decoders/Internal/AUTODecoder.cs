@@ -8,17 +8,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class AUTODecoder : TypeDecoder<bool>
   {
-    public override string Description
-    {
-      get { return "AUTO - automated report"; }
-    }
+    public override string Description => "AUTO - automated report";
 
-    public override string RegEx
-    {
-      get { return "^AUTO"; }
-    }
+      public override string RegEx => "^AUTO";
 
-    protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       return true;
     }

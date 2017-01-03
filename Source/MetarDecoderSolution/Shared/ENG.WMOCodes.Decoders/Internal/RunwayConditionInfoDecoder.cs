@@ -41,9 +41,6 @@ namespace ENG.WMOCodes.Decoders.Internal
       return ret;
     }
 
-    public override string Description
-    {
-      get { return "Runways' conditions"; }
-    }
+    public override string Description => "Runways' conditions";
   }
 }

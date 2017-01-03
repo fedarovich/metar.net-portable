@@ -30,25 +30,14 @@ namespace ENG.WMOCodes.Decoders.Internal
       Prob40
     }
 
-    public override string Description
-    {
-      get { return "Trend/Tempo/Becoming data"; }
-    }
+    public override string Description => "Trend/Tempo/Becoming data";
 
-    private const int NUMBER_OF_GROUPS = 8;
-    private string regexPattern
-    {
-      get { return "(^TEMPO)|(^PROB30 TEMPO)|(^PROB40 TEMPO)|(^BECMG)|(^FM)|(^PROB40)|(^PROB30)"; }
-    }
-    private eType[] regexTypes
-    {
-      get
-      {
-        return new eType[] { eType.None, eType.Tempo, eType.Tempo30, eType.Tempo40, eType.Becmg, eType.Fm, eType.Prob40, eType.Prob30 };
-      }
-    }
+      private const int NUMBER_OF_GROUPS = 8;
+    private string regexPattern => "(^TEMPO)|(^PROB30 TEMPO)|(^PROB40 TEMPO)|(^BECMG)|(^FM)|(^PROB40)|(^PROB30)";
 
-    protected override TrendInfoForTaf _Decode(ref string source)
+      private eType[] regexTypes => new eType[] { eType.None, eType.Tempo, eType.Tempo30, eType.Tempo40, eType.Becmg, eType.Fm, eType.Prob40, eType.Prob30 };
+
+      protected override TrendInfoForTaf _Decode(ref string source)
     {
       Info info = new Info();
 

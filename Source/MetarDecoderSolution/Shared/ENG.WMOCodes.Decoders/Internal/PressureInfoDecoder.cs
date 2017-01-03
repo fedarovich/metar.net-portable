@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class PressureInfoDecoder : TypeDecoder<PressureInfo>
   {
-    public override string Description
-    {
-      get { return "Air pressure"; }
-    }
+    public override string Description => "Air pressure";
 
-    public override string RegEx
-    {
-      get { return @"(^(Q|A)(\d{4}))"; }
-    }
+      public override string RegEx => @"(^(Q|A)(\d{4}))";
 
-    protected override PressureInfo _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override PressureInfo _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       PressureInfo ret = new PressureInfo();
 

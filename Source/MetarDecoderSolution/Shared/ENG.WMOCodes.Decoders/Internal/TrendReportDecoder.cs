@@ -9,12 +9,9 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class TrendReportDecoder : CustomDecoder<TrendReport>
   {
-    public override string Description
-    {
-      get { return "Trend report"; }
-    }
+    public override string Description => "Trend report";
 
-    protected override TrendReport _Decode(ref string source)
+      protected override TrendReport _Decode(ref string source)
     {
       TrendReport ret = new TrendReport();
 

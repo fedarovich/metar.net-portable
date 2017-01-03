@@ -10,17 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class DayHourMinuteDecoder : TypeDecoder<DayHourMinute>
   {
-    public override string Description
-    {
-      get { return "Day-time"; }
-    }
+    public override string Description => "Day-time";
 
-    public override string RegEx
-    {
-      get { return @"(\d{2})(\d{2})(\d{2})Z"; }
-    }
+      public override string RegEx => @"(\d{2})(\d{2})(\d{2})Z";
 
-    protected override DayHourMinute _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override DayHourMinute _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       DayHourMinute ret = new DayHourMinute();
 

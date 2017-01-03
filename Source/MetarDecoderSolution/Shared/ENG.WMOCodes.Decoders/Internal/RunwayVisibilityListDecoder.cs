@@ -28,9 +28,6 @@ namespace ENG.WMOCodes.Decoders.Internal
       return ret;
     }
 
-    public override string Description
-    {
-      get { return "Runways visibility"; }
-    }
+    public override string Description => "Runways visibility";
   }
 }

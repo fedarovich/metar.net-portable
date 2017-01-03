@@ -10,21 +10,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class VisibilityDecoder : TypeDecoder<Visibility>
   {
-    public override string Description
-    {
-      get { return "Trend visibility"; }
-    }
+    public override string Description => "Trend visibility";
 
-    public override string RegEx
-    {
-      get
-      {
-        return
-          @"^((CAVOK)|(\d{4})|(((M)?|(\d+) )(\d+)(/(\d\d?))?SM))";
-      }
-    }
+      public override string RegEx => @"^((CAVOK)|(\d{4})|(((M)?|(\d+) )(\d+)(/(\d\d?))?SM))";
 
-    protected override Visibility _Decode(System.Text.RegularExpressions.GroupCollection grp)
+      protected override Visibility _Decode(System.Text.RegularExpressions.GroupCollection grp)
     {
       Visibility ret = null;
 

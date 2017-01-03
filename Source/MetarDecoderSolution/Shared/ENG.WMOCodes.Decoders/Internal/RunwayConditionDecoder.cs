@@ -9,19 +9,13 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class RunwayConditionDecoder : TypeDecoder<RunwayCondition>
   {
-    public override string Description
-    {
-      get { return "Runway condition"; }
-    }
+    public override string Description => "Runway condition";
 
-    private const string R_RWY_COND = @"^R(\d{2}(L|R|C)*)/((\d|/)(\d|/)(\d{2}|/{2})(\d{2}|/{2})|(CLRD//))";
+      private const string R_RWY_COND = @"^R(\d{2}(L|R|C)*)/((\d|/)(\d|/)(\d{2}|/{2})(\d{2}|/{2})|(CLRD//))";
 
-    public override string RegEx
-    {
-      get { return R_RWY_COND; }
-    }
+    public override string RegEx => R_RWY_COND;
 
-    protected override RunwayCondition _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override RunwayCondition _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       RunwayCondition ret = new RunwayCondition();
 

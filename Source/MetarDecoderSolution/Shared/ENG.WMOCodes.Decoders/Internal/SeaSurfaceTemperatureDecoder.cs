@@ -9,17 +9,11 @@ namespace ENG.WMOCodes.Decoders.Internal
 {
   class SeaSurfaceTemperatureDecoder : TypeDecoder<int?>
   {
-    public override string Description
-    {
-      get { return "Sea surface temperature"; }
-    }
+    public override string Description => "Sea surface temperature";
 
-    public override string RegEx
-    {
-      get { return @"^W(M)?(\d{2})"; }
-    }
+      public override string RegEx => @"^W(M)?(\d{2})";
 
-    protected override int? _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override int? _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       int ret = groups[2].GetIntValue();
 

@@ -8,12 +8,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("ENG.WMOCodes")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Pavel Fedarovich")]
 [assembly: AssemblyProduct("ENG.WMOCodes")]
-[assembly: AssemblyCopyright("Copyright ©  2015-2017")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("en")]
+
 
 

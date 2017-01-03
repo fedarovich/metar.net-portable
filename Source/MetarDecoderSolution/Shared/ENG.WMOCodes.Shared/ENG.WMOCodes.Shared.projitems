@@ -3,13 +3,12 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>7dc280ae-ad07-4fe7-9623-9b1323f94ba9</SharedGUID>
+    <SharedGUID>f2aeda6d-4b64-461a-9a97-2835b733f4b2</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>ENG.WMOCodes.Formatters</Import_RootNamespace>
+    <Import_RootNamespace>ENG.WMOCodes.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)IMetarFormatter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ITafFormatter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" />
   </ItemGroup>
 </Project>

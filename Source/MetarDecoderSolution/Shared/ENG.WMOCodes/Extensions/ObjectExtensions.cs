@@ -7,21 +7,13 @@ using System.Text;
 
 namespace ENG.WMOCodes.Extensions
 {
-    internal static partial class ObjectExtensions
+    internal static class ObjectExtensions
     {
         private static int callIndex = 0;
-        private const string NULL = "(null)";
-        private const string INTENDER = "  ";
-        private const string DEFAULT_ENCAPSULATING_TAG = "This";
-        private const string DEFAULT_ENUMERATIONITEM_TAG = "Item";
-        private const string DEFAULT_NULL_TAGITEM = "(null)";
 
-#if !PCL
         public static string ToInlineInfoString(this object obj)
         {
             ++callIndex;
-            if (callIndex > 100)
-                Console.WriteLine("stop");
             if (obj == null)
                 return "(null)";
             if (obj is string)
@@ -47,8 +39,8 @@ namespace ENG.WMOCodes.Extensions
             }
             else
             {
-                MemberInfo[] members = type.GetProperties().Cast<MemberInfo>().ToArray();
-                string str = GenerateInlineContent(obj, members);
+                var properties = type.GetRuntimeProperties();
+                string str = GenerateInlineContent(obj, properties);
                 if (str.Length > 0)
                 {
                     builder.AppendPreDelimited(str, ';');
@@ -66,16 +58,15 @@ namespace ENG.WMOCodes.Extensions
             return stringBuilder.ToString();
         }
 
-        private static string GenerateInlineContent(object obj, MemberInfo[] members)
+        private static string GenerateInlineContent(object obj, IEnumerable<PropertyInfo> properties)
         {
             StringBuilder builder = new StringBuilder();
-            foreach (MemberInfo memberInfo in members)
+            foreach (var propertyInfo in properties)
             {
-                string str = ToInlineInfoString(obj.GetType().InvokeMember(memberInfo.Name, BindingFlags.GetProperty, (Binder)null, obj, (object[])null));
-                builder.AppendPreDelimited(memberInfo.Name + "=" + str, ',');
+                string str = ToInlineInfoString(propertyInfo.GetValue(obj, null));
+                builder.AppendPreDelimited(propertyInfo.Name + "=" + str, ',');
             }
             return builder.ToString();
         }
-#endif
     }
 }

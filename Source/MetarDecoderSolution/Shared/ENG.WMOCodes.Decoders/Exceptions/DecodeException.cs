@@ -5,49 +5,50 @@ using System.Text;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  /// <summary>
-  /// Exception thrown when decoding failed.
-  /// </summary>
-#if SILVERLIGHT == false && PCL == false
-  [Serializable]
+    /// <summary>
+    /// Exception thrown when decoding failed.
+    /// </summary>
+#if !PCL && (!NET_STANDARD || NET_STANDARD_1_3_PLUS)
+    [Serializable]
 #endif
-  public class DecodeException : Exception
-  {
-    private string _Description;
-    /// <summary>
-    /// Gets the description. Description should describe location where error occured.
-    /// </summary>
-    /// <value>The description.</value>
-    public string Description => _Description;
-
-      /// <summary>
-    /// Initializes a new instance of the <see cref="DecodeException"/> class.
-    /// </summary>
-    /// <param name="decoderDescription">The decoder description. Description should describe location where error occured.</param>
-    /// <param name="inner">The inner.</param>
-    public DecodeException(string decoderDescription, Exception inner)
-      : base("", inner)
+    public class DecodeException : Exception
     {
-      this._Description = decoderDescription;
-    }
+        /// <summary>
+        /// Gets the description. Description should describe location where error occured.
+        /// </summary>
+        /// <value>The description.</value>
+        public string Description { get; }
 
-#if SILVERLIGHT == false && PCL == false
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DecodeException"/> class.
+        /// </summary>
+        /// <param name="decoderDescription">The decoder description. Description should describe location where error occured.</param>
+        /// <param name="inner">The inner.</param>
+        public DecodeException(string decoderDescription, Exception inner)
+          : base("", inner)
+        {
+            Description = decoderDescription;
+        }
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="DecodeException"/> class.
-    /// </summary>
-    /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-    /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-    /// <exception cref="T:System.ArgumentNullException">
-    /// The <paramref name="info"/> parameter is null.
-    /// </exception>
-    /// <exception cref="T:System.Runtime.Serialization.SerializationException">
-    /// The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
-    /// </exception>
-    protected DecodeException(
-    System.Runtime.Serialization.SerializationInfo info,
-    System.Runtime.Serialization.StreamingContext context)
-      : base(info, context) { }
+#if !PCL && (!NET_STANDARD || NET_STANDARD_1_3_PLUS)
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DecodeException"/> class.
+        /// </summary>
+        /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+        /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// The <paramref name="info"/> parameter is null.
+        /// </exception>
+        /// <exception cref="T:System.Runtime.Serialization.SerializationException">
+        /// The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+        /// </exception>
+        protected DecodeException(
+            System.Runtime.Serialization.SerializationInfo info,
+            System.Runtime.Serialization.StreamingContext context)
+          : base(info, context)
+        {
+        }
 
 #endif
 
@@ -60,36 +61,36 @@ namespace ENG.WMOCodes.Decoders.Internal
         /// </returns>
         public override string Message => GenerateMessage();
 
-      /// <summary>
-    /// Generates the message.
-    /// </summary>
-    /// <returns></returns>
-    private string GenerateMessage()
-    {
-      StringBuilder tree = new StringBuilder();
-      DecodeException curr = this;
+        /// <summary>
+        /// Generates the message.
+        /// </summary>
+        /// <returns></returns>
+        private string GenerateMessage()
+        {
+            StringBuilder tree = new StringBuilder();
+            DecodeException curr = this;
 
-      tree.Append("Decoding failed at ");
+            tree.Append("Decoding failed at ");
 
-      while (true)
-      {
-        tree.Append("->" + curr.Description);
-        if (curr.InnerException != null && curr.InnerException is DecodeException)
-          curr = curr.InnerException as DecodeException;
-        else
-          break;
-      }
+            while (true)
+            {
+                tree.Append("->" + curr.Description);
+                if (curr.InnerException != null && curr.InnerException is DecodeException)
+                    curr = curr.InnerException as DecodeException;
+                else
+                    break;
+            }
 
-      tree.Append(". Reason:");
+            tree.Append(". Reason:");
 
-      Exception ex = curr.InnerException;
-      while (ex != null)
-      {
-        tree.Append(" >> " + curr.InnerException.Message);
-        ex = ex.InnerException;
-      }
+            Exception ex = curr.InnerException;
+            while (ex != null)
+            {
+                tree.Append(" >> " + curr.InnerException.Message);
+                ex = ex.InnerException;
+            }
 
-      return tree.ToString();
+            return tree.ToString();
+        }
     }
-  }
 }

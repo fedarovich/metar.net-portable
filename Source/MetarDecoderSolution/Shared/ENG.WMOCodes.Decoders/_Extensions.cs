@@ -58,12 +58,12 @@ namespace ENG.WMOCodes.Decoders
         /// <param name="excludeList">The list of properties which should be skipped and not copied..</param>
         public static void CopyPropertiesTo(this object source, object target, List<string> excludeList)
         {
-            var ins = source.GetType().GetInterfaces();
+            var ins = source.GetType().GetTypeInfo().ImplementedInterfaces;
             bool areLists = false;
             areLists = IsList(source) && IsList(target);
 
-            PropertyInfo[] sp = source.GetType().GetProperties();
-            PropertyInfo[] tp = target.GetType().GetProperties();
+            PropertyInfo[] sp = source.GetType().GetRuntimeProperties().ToArray();
+            PropertyInfo[] tp = target.GetType().GetRuntimeProperties().ToArray();
             PropertyInfo[] shared = GetSharedProperties(sp, tp);
             CutOutExcluded(ref shared, excludeList);
             object val;
@@ -114,7 +114,7 @@ namespace ENG.WMOCodes.Decoders
                 predicate = t => StringComparer.Ordinal.Equals(t.FullName, name);
             }
 
-            var matches = type.GetInterfaces().Where(predicate).ToArray();
+            var matches = type.GetTypeInfo().ImplementedInterfaces.Where(predicate).ToArray();
             switch (matches.Length)
             {
                 case 0:
@@ -150,7 +150,7 @@ namespace ENG.WMOCodes.Decoders
 
         private static bool IsList(object target)
         {
-            foreach (var fItem in target.GetType().GetInterfaces())
+            foreach (var fItem in target.GetType().GetTypeInfo().ImplementedInterfaces)
             {
                 if (fItem.FullName.Contains("System.Collections.Generic.IList"))
                     return true;

@@ -11,12 +11,12 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Downloader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DownloadException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDownloader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IHttpDownloader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IRetriever.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RetrieveResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\AviationWeatherGovRetriever.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\NoaaGovRetriever.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\OldLineWeatherRetriever.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\USAS1VatsimRetriever.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\VatsimRetriever.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Retrievers\TAF\NoaaGovRetriever.cs" />
   </ItemGroup>

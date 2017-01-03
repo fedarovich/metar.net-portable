@@ -319,7 +319,7 @@ namespace ENG.WMOCodes.Codes
       }
     }
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)]
-    private TrendInfoForMetar _Trend = new TrendInfoForMetar();
+    private TrendInfoForMetar _trend = new TrendInfoForMetar();
     ///<summary>
     /// Sets/gets Trend value. Allways value is in here, when no info found, trend type is null.
     /// Trend in metar is required, (NOSIG text is minimum).
@@ -328,11 +328,11 @@ namespace ENG.WMOCodes.Codes
     {
       get
       {
-        return (_Trend);
+        return (((Metar) this)._trend);
       }
       set
       {
-        _Trend = value;
+        ((Metar) this)._trend = value;
       }
     }
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -431,63 +431,6 @@ namespace ENG.WMOCodes.Codes
     }
 
     #endregion Properties
-
-    #region .ctor
-    #endregion .ctor
-
-    #region Static methods
-
-    /// <summary>
-    /// Creates metar instance from string.
-    /// </summary>
-    /// <param name="metarString"></param>
-    /// <returns></returns>
-    [Obsolete("Not supported.")]
-    public static Metar Create(string metarString)
-    {
-      throw new NotImplementedException();
-      //Metar ret = null;
-
-      //ret = new MetarDecoder().Decode(metarString);
-
-      //return ret;
-    }
-
-    /// <summary>
-    /// Checks if metar string is recognizable by this class.
-    /// Returns true if success, otherwise false, if failed, and in error variable is error description.
-    /// </summary>
-    /// <param name="metarString"></param>
-    /// <param name="error"></param>
-    /// <returns></returns>
-    [Obsolete("No more supported. Use decoder classes instead.")]
-    public static bool CheckMetarString(string metarString, out string error)
-    {
-      throw new NotSupportedException();
-      //error = null;
-      //bool ret = false;
-      //try
-      //{
-      //  Metar m = Create(metarString);
-      //  ret = true;
-      //} // try
-      //catch (Exception ex)
-      //{
-      //  error = ex.Message;
-      //  ret = false;
-      //} // catch (Exception ex)
-      //return ret;
-    }
-
-    #endregion Static methods
-
-    #region Consts
-
-    #endregion Consts
-
-    #region Internal methods
-
-    #endregion Internal methods    
 
     #region Inherited
 

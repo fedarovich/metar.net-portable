@@ -30,11 +30,11 @@ namespace ENG.WMOCodes.Types
         ///</summary>
         public Direction? OtherDirectionSpecification { get; set; }
 
-        private List<RunwayVisibility> _runways = new List<RunwayVisibility>();
+        private IList<RunwayVisibility> _runways = new List<RunwayVisibility>();
         ///<summary>
         /// Sets/gets runway designator. Cannot be null.
         ///</summary>
-        public List<RunwayVisibility> Runways
+        public IList<RunwayVisibility> Runways
         {
             get
             {

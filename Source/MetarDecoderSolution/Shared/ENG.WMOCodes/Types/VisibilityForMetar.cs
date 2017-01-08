@@ -7,7 +7,7 @@ using ENG.WMOCodes.Types.Basic;
 namespace ENG.WMOCodes.Types
 {
     /// <summary>
-    /// Describes standard visibility (<seealso cref="Visibility"/>) extended by direction-visibility and runway visibility.
+    /// Describes standard visibility (<see cref="Visibility"/>) extended by direction-visibility and runway visibility.
     /// </summary>
     /// <seealso cref="T:ENG.Metar.Decoder.TrendVisibility"/>
     public class VisibilityForMetar : Visibility

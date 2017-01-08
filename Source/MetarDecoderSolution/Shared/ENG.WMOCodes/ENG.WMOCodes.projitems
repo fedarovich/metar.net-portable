@@ -11,6 +11,8 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Codes\Metar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Codes\MetarType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Codes\HumidityCalculator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Codes\RelativeHumidityFormula.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Codes\Taf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Codes\TafGroups.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ComparableExtensions.cs" />

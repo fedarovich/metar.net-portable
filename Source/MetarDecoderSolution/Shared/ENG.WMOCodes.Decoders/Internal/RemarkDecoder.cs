@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
-using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class RemarkDecoder : TypeDecoder<string>
-  {
-    public override string Description => "Remark";
-
-      public override string RegEx => "^RMK (.*)";
-
-      protected override string _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    internal class RemarkDecoder : TypeDecoder<string>
     {
-      return groups[1].Value;
+        public override string Description => "Remark";
+
+        public override string RegEx => "^RMK (.*)";
+
+        protected override string DecodeCore(GroupCollection groups)
+        {
+            return groups[1].Value;
+        }
     }
-  }
 }

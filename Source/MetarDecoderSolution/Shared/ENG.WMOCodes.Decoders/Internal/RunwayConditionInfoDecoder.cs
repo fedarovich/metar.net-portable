@@ -1,46 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class RunwayConditionInfoDecoder : CustomDecoder<RunwayConditionInfo>
-  {
-    private const string R_RWY_CONDS = @"(?#rwyCond)(( SNOCLO)|(( " + R_RWY_COND + ")*))?";
-    private const string R_RWY_COND = @"R(\d{2}(L|R|C)*)/((\d|/)(\d|/)(\d{2}|/{2})(\d{2}|/{2})|(CLRD//))";
-
-    private const string SNOCLO = "SNOCLO";
-
-    protected override RunwayConditionInfo _Decode(ref string source)
+    internal class RunwayConditionInfoDecoder : CustomDecoder<RunwayConditionInfo>
     {
-      RunwayConditionInfo ret = null;
-      RunwayCondition rc;
+        [SuppressMessage("ReSharper", "InconsistentNaming")]
+        private const string SNOCLO = "SNOCLO";
 
-      if (source.StartsWith(SNOCLO))
-      {
-        ret = new RunwayConditionInfo() { IsSNOCLO = true };
-        source = source.Substring(SNOCLO.Length).TrimStart();
-      }
-      else
-      {
-        ret = new RunwayConditionInfo();
-        bool found = true;
-        while (found)
+        protected override RunwayConditionInfo DecodeCore(ref string source)
         {
-          rc = new RunwayConditionDecoder() { Required = false }.Decode(ref source);
-          if (rc == null)
-            found = false;
-          else
-            ret.Add(rc);
+            RunwayConditionInfo ret = null;
+            RunwayCondition rc;
+
+            if (source.StartsWith(SNOCLO))
+            {
+                ret = new RunwayConditionInfo { IsSNOCLO = true };
+                source = source.Substring(SNOCLO.Length).TrimStart();
+            }
+            else
+            {
+                ret = new RunwayConditionInfo();
+                bool found = true;
+                while (found)
+                {
+                    rc = new RunwayConditionDecoder { Required = false }.Decode(ref source);
+                    if (rc == null)
+                        found = false;
+                    else
+                        ret.Add(rc);
+                }
+            }
+
+            return ret;
         }
-      }
 
-      return ret;
+        public override string Description => "Runways' conditions";
     }
-
-    public override string Description => "Runways' conditions";
-  }
 }

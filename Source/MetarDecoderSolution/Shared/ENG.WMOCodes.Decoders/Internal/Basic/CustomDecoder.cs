@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ENG.WMOCodes.Decoders.Internal.Basic
 {
-  abstract class CustomDecoder<T> : InternalDecoder<T>
-  {
-    protected override abstract T _Decode(ref string source);
-
-    protected void TryFailIfRequired ( string source)
+    internal abstract class CustomDecoder<T> : InternalDecoder<T>
     {
-      if (Required)
-        throw new DecodeException(this.Description, new ArgumentException(source));
+        protected abstract override T DecodeCore(ref string source);
+
+        protected void TryFailIfRequired(string source)
+        {
+            if (Required)
+                throw new DecodeException(Description, new ArgumentException(source));
+        }
     }
-  }
 }

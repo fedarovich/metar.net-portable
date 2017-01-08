@@ -1,33 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class RunwayVisibilityListDecoder : CustomDecoder<List<RunwayVisibility>>
-  {    
-    private const string regexPattern = @"^R\d{2}";    
-
-    protected override List<RunwayVisibility> _Decode(ref string source)
+    internal class RunwayVisibilityListDecoder : CustomDecoder<List<RunwayVisibility>>
     {
-      List<RunwayVisibility> ret = new List<RunwayVisibility>();
-      RunwayVisibility rv = null;
+        private const string RegexPattern = @"^R\d{2}";
 
-      Match m = Regex.Match(source, regexPattern);
-      while (m.Success)
-      {
-        rv = new RunwayVisibilityDecoder().Decode(ref source);
-        ret.Add(rv);
-        m = Regex.Match(source, regexPattern);
-      }
+        protected override List<RunwayVisibility> DecodeCore(ref string source)
+        {
+            List<RunwayVisibility> ret = new List<RunwayVisibility>();
 
-      return ret;
+            Match m = Regex.Match(source, RegexPattern);
+            while (m.Success)
+            {
+                var rv = new RunwayVisibilityDecoder().Decode(ref source);
+                ret.Add(rv);
+                m = Regex.Match(source, RegexPattern);
+            }
+
+            return ret;
+        }
+
+        public override string Description => "Runways visibility";
     }
-
-    public override string Description => "Runways visibility";
-  }
 }

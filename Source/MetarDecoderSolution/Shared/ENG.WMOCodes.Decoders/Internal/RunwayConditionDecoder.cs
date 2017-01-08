@@ -1,36 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class RunwayConditionDecoder : TypeDecoder<RunwayCondition>
-  {
-    public override string Description => "Runway condition";
-
-      private const string R_RWY_COND = @"^R(\d{2}(L|R|C)*)/((\d|/)(\d|/)(\d{2}|/{2})(\d{2}|/{2})|(CLRD//))";
-
-    public override string RegEx => R_RWY_COND;
-
-      protected override RunwayCondition _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    internal class RunwayConditionDecoder : TypeDecoder<RunwayCondition>
     {
-      RunwayCondition ret = new RunwayCondition();
+        public override string Description => "Runway condition";
 
-      ret.Runway = groups[1].Value;
-      if (groups[8].Success)
-        ret.IsCleared = true;
-      else
-      {
-        ret.Deposit = (groups[4].Value == "/" ? null : (RunwayDeposit?)groups[4].GetIntValue());
-        ret.Contamination = (groups[5].Value == "/" ? null : (RunwayContamination?)groups[5].GetIntValue());
-        ret.Depth = (groups[6].Value == "//" ? null : (RunwayContaminationDepth?)groups[6].GetIntValue());
-        ret.Friction = (groups[7].Value == "//" ? null : (RunwayFriction?)groups[7].GetIntValue());
-      }
+        private const string RegexPattern = @"^R(\d{2}(L|R|C)*)/((\d|/)(\d|/)(\d{2}|/{2})(\d{2}|/{2})|(CLRD//))";
 
-      return ret;
+        public override string RegEx => RegexPattern;
+
+        protected override RunwayCondition DecodeCore(GroupCollection groups)
+        {
+            RunwayCondition ret = new RunwayCondition {Runway = groups[1].Value};
+
+            if (groups[8].Success)
+            {
+                ret.IsCleared = true;
+            }
+            else
+            {
+                ret.Deposit = (groups[4].Value == "/" ? null : (RunwayDeposit?)groups[4].GetIntValue());
+                ret.Contamination = (groups[5].Value == "/" ? null : (RunwayContamination?)groups[5].GetIntValue());
+                ret.Depth = (groups[6].Value == "//" ? null : (RunwayContaminationDepth?)groups[6].GetIntValue());
+                ret.Friction = (groups[7].Value == "//" ? null : (RunwayFriction?)groups[7].GetIntValue());
+            }
+
+            return ret;
+        }
     }
-  }
 }

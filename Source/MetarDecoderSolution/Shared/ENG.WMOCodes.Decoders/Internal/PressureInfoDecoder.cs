@@ -1,15 +1,16 @@
-﻿using ENG.WMOCodes.Decoders.Internal.Basic;
+﻿using System.Text.RegularExpressions;
+using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-    class PressureInfoDecoder : TypeDecoder<PressureInfo>
+    internal class PressureInfoDecoder : TypeDecoder<PressureInfo>
     {
         public override string Description => "Air pressure";
 
         public override string RegEx => @"(^(Q|A)(\d{4}))";
 
-        protected override PressureInfo _Decode(System.Text.RegularExpressions.GroupCollection groups)
+        protected override PressureInfo DecodeCore(GroupCollection groups)
         {
             PressureInfo ret = new PressureInfo();
 

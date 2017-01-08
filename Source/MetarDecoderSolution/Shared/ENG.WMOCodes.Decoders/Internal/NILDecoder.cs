@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
-using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  internal class NILDecoder : TypeDecoder<bool>
-  {
-    public override string Description => "NIL - nil report";
-
-      public override string RegEx => "^NIL";
-
-      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    // ReSharper disable once InconsistentNaming
+    internal class NILDecoder : TypeDecoder<bool>
     {
-      return true;
+        public override string Description => "NIL - nil report";
+
+        public override string RegEx => "^NIL";
+
+        protected override bool DecodeCore(GroupCollection groups)
+        {
+            return true;
+        }
     }
-  }
 }

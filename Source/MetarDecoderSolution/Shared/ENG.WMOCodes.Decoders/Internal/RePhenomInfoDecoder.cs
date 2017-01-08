@@ -1,36 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class RePhenomInfoDecoder : CustomDecoder<RePhenomInfo>
-  {
-    private const string prefixPattern = "^RE([^ ]+)";
-
-    protected override RePhenomInfo _Decode(ref string source)
+    internal class RePhenomInfoDecoder : CustomDecoder<RePhenomInfo>
     {
-      RePhenomInfo ret = new RePhenomInfo();
+        private const string PrefixPattern = "^RE([^ ]+)";
 
-      Match m = Regex.Match(source, prefixPattern);
-      while (m.Success)
-      {        
+        protected override RePhenomInfo DecodeCore(ref string source)
+        {
+            RePhenomInfo ret = new RePhenomInfo();
 
-        source = source.Substring(m.Groups[0].Length).TrimStart();
-        string p = m.Groups[0].Value.Substring(2);
-        PhenomInfo pi = new PhenomInfoDecoder().Decode(ref p);
-        ret.AddRange(pi);
+            Match m = Regex.Match(source, PrefixPattern);
+            while (m.Success)
+            {
+                source = source.Substring(m.Groups[0].Length).TrimStart();
+                string p = m.Groups[0].Value.Substring(2);
+                PhenomInfo pi = new PhenomInfoDecoder().Decode(ref p);
+                ret.AddRange(pi);
 
-        m = Regex.Match(source, prefixPattern);
-      }
+                m = Regex.Match(source, PrefixPattern);
+            }
 
-      return ret;
+            return ret;
+        }
+
+        public override string Description => "Recent phenomena";
     }
-
-    public override string Description => "Recent phenomens";
-  }
 }

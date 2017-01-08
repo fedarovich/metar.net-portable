@@ -57,6 +57,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)MetarDecoder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MetarDecoderWithAllOptional.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TafDecoder.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)_Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
   </ItemGroup>
 </Project>

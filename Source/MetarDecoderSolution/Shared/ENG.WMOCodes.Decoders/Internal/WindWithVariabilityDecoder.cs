@@ -1,38 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class WindWithVariabilityDecoder : CustomDecoder<WindWithVariability>
-  {
-
-    protected override WindWithVariability _Decode(ref string source)
+    internal class WindWithVariabilityDecoder : CustomDecoder<WindWithVariability>
     {
-      Wind w = new WindDecoder() { Required = this.Required }.Decode(ref source);
-      WindVariable wv = new WindVariableDecoder() { Required = false }.Decode(ref source);
+        protected override WindWithVariability DecodeCore(ref string source)
+        {
+            Wind w = new WindDecoder { Required = Required }.Decode(ref source);
+            WindVariable wv = new WindVariableDecoder { Required = false }.Decode(ref source);
 
-      WindWithVariability ret;
-      if (w == null)
-      {
-        if (wv != null)
-          throw new Exception("No wind definition found, but wind variability definition found.  Possible invalid data?");
-        else
-          ret = null;
-      }
-      else
-      {
-        ret = new WindWithVariability();
-        w.CopyPropertiesTo(ret, "IsVariable");
-        ret.Variability = wv;
-      }
+            WindWithVariability ret;
+            if (w == null)
+            {
+                if (wv != null)
+                    throw new Exception("No wind definition found, but wind variability definition found.  Possible invalid data?");
+                ret = null;
+            }
+            else
+            {
+                ret = new WindWithVariability();
+                w.CopyPropertiesTo(ret, "IsVariable");
+                ret.Variability = wv;
+            }
 
-      return ret;
+            return ret;
+        }
+
+        public override string Description => "Wind with variability";
     }
-
-    public override string Description => "Wind with variability";
-  }
 }

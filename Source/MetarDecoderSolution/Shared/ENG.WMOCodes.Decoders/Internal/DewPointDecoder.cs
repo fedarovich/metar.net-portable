@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
-using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class DewPointDecoder : TypeDecoder<int>
-  {
-    public override string Description => "Dew point";
-
-      public override string RegEx => @"/(M)?(\d{2})";
-
-      protected override int _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    internal class DewPointDecoder : TypeDecoder<int>
     {
-      int ret = groups[2].GetIntValue();
+        public override string Description => "Dew point";
 
-      if (groups[1].Success)
-        ret = -ret;
+        public override string RegEx => @"/(M)?(\d{2})";
 
-      return ret;
+        protected override int DecodeCore(GroupCollection groups)
+        {
+            int ret = groups[2].GetIntValue();
+
+            if (groups[1].Success)
+                ret = -ret;
+
+            return ret;
+        }
     }
-  }
 }

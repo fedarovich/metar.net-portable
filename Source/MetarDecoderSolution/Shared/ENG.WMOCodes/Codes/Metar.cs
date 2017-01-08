@@ -279,9 +279,14 @@ namespace ENG.WMOCodes.Codes
         public int? SeaSurfaceTemperature { get; set; } = null;
 
         /// <summary>
-        /// Calculates humidity. Very rough aproximation.
+        /// <para>Calculates humidity. Very rough aproximation: 100 - 5d * (Temperature - DewPoint)</para> 
+        /// <para>
+        /// This method is deprecated. 
+        /// Use <see cref="HumidityCalculator.CalculateRelativeHumidity(Metar,RelativeHumidityFormula)"/>
+        /// method instead.
+        /// </para>
         /// </summary>
-        [Obsolete("Use CalculateHumidity method instead.")]
+        [Obsolete("Use HumidityCalculator.CalculateRelativeHumidity extension method instead.")]
         public double Humidity => 100 - 5d * (Temperature - DewPoint);
 
         #endregion Properties

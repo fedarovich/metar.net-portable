@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace ENG.WMOCodes.Decoders.Internal
@@ -75,8 +73,9 @@ namespace ENG.WMOCodes.Decoders.Internal
             while (true)
             {
                 tree.Append("->" + curr.Description);
-                if (curr.InnerException != null && curr.InnerException is DecodeException)
-                    curr = curr.InnerException as DecodeException;
+                var exception = curr.InnerException as DecodeException;
+                if (exception != null)
+                    curr = exception;
                 else
                     break;
             }

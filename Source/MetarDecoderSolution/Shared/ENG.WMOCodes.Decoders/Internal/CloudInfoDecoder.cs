@@ -1,67 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class CloudInfoDecoder : TypeDecoder<CloudInfo>
-  {
-    public override string Description => "Cloud information";
-
-      private const string R_CLOUD_ITEM = @"( ?(FEW|SCT|BKN|OVC)(\d{3})(CB|TCU)?/*)";
-    public override string RegEx => @"^((NSC)|(SKC)|(CLR)|VV((\d{3})|/{3})|" + R_CLOUD_ITEM + "+)";
-
-      protected override CloudInfo _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    internal class CloudInfoDecoder : TypeDecoder<CloudInfo>
     {
-      CloudInfo ret = null;
+        public override string Description => "Cloud information";
 
-      if (groups[0].Success)
-      {
-        ret = new CloudInfo();
+        private const string RegexPattern = @"( ?(FEW|SCT|BKN|OVC)(\d{3})(CB|TCU)?/*)";
+        public override string RegEx => @"^((NSC)|(SKC)|(CLR)|VV((\d{3})|/{3})|" + RegexPattern + "+)";
 
-        if (groups[2].Success)
-          ret.SetNSC();
-        else if (groups[3].Success)
-          ret.SetSKC();
-        else if (groups[4].Success)
-            ret.SetCLR();
-        else if (groups[5].Success)
+        protected override CloudInfo DecodeCore(GroupCollection groups)
         {
-          if (groups[5].Value == "///")
-            ret.SetVerticalVisibility(null);
-          else
-            ret.SetVerticalVisibility(
-              groups[5].GetIntValue());
+            CloudInfo ret = null;
+
+            if (groups[0].Success)
+            {
+                ret = new CloudInfo();
+
+                if (groups[2].Success)
+                    ret.SetNSC();
+                else if (groups[3].Success)
+                    ret.SetSKC();
+                else if (groups[4].Success)
+                    ret.SetCLR();
+                else if (groups[5].Success)
+                {
+                    if (groups[5].Value == "///")
+                        ret.SetVerticalVisibility(null);
+                    else
+                        ret.SetVerticalVisibility(
+                          groups[5].GetIntValue());
+                }
+                else
+                {
+                    string str = groups[1].Value;
+                    Match m = Regex.Match(str, RegexPattern);
+
+                    while (m.Success)
+                    {
+                        ret.Add(DecodeCloud(m));
+
+                        m = m.NextMatch();
+                    }
+                }
+            }
+
+            return ret;
         }
-        else
+
+        private static Cloud DecodeCloud(Match m)
         {
-          string str = groups[1].Value;
-          Match m = Regex.Match(str, R_CLOUD_ITEM);
+            var ret = new Cloud(
+                m.Groups[2].Value, m.Groups[3].GetIntValue(), m.Groups[4].Value == "CB", m.Groups[4].Value == "TCU");
 
-          while (m.Success)
-          {
-            ret.Add(xDecodeCloud(m));
-
-            m = m.NextMatch();
-          }
+            return ret;
         }
-      }
-
-      return ret;
     }
-
-    private static Cloud xDecodeCloud(Match m)
-    {
-      Cloud ret = null;
-
-      ret = new Cloud(
-        m.Groups[2].Value, m.Groups[3].GetIntValue(), m.Groups[4].Value == "CB", m.Groups[4].Value == "TCU");
-
-      return ret;
-    }
-  }
 }

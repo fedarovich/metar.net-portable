@@ -1,34 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 using ENG.WMOCodes.Types.DateTimeTypes;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class TXDecoder : TypeDecoder<TemperatureExtremeTX>
-  {
-    public override string Description => "TAF TX";
-
-      public override string RegEx => @"^TX(M)?(\d{2})/(\d{2})(\d{2})Z";
-
-      protected override TemperatureExtremeTX _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    // ReSharper disable once InconsistentNaming
+    internal class TXDecoder : TypeDecoder<TemperatureExtremeTX>
     {
-      TemperatureExtremeTX ret = new TemperatureExtremeTX();
+        public override string Description => "TAF TX";
 
-      bool negate = groups[1].Success;
+        public override string RegEx => @"^TX(M)?(\d{2})/(\d{2})(\d{2})Z";
 
-      ret.Temperature = groups[2].GetIntValue();
-      if (negate)
-        ret.Temperature = -ret.Temperature;
+        protected override TemperatureExtremeTX DecodeCore(GroupCollection groups)
+        {
+            TemperatureExtremeTX ret = new TemperatureExtremeTX();
 
-      ret.Time = new DayHour();
-      ret.Time.Day = groups[3].GetIntValue();
-      ret.Time.Hour = groups[4].GetIntValue();
+            bool negate = groups[1].Success;
 
-      return ret;
+            ret.Temperature = groups[2].GetIntValue();
+            if (negate)
+                ret.Temperature = -ret.Temperature;
+
+            ret.Time = new DayHour(
+                groups[3].GetIntValue(),
+                groups[4].GetIntValue());
+
+            return ret;
+        }
     }
-  }
 }

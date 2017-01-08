@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+using System.Collections;
 using System.Text.RegularExpressions;
 using ENG.WMOCodes.Extensions;
 
@@ -14,13 +11,13 @@ namespace ENG.WMOCodes.Decoders.Internal.Basic
 
         public abstract string RegEx { get; }
 
-        protected sealed override T _Decode(ref string source)
+        protected sealed override T DecodeCore(ref string source)
         {
-            T ret = default(T);
+            T ret;
 
             var groups = TryGetGroups(ref source);
             if (groups != null)
-                ret = _Decode(groups);
+                ret = DecodeCore(groups);
             else
               if (Required)
                 throw
@@ -28,7 +25,7 @@ namespace ENG.WMOCodes.Decoders.Internal.Basic
                     new ArgumentException("Failed text is >" + source + "<."));
             else
             {
-                ret = typeof(T).IsAssignableTo<System.Collections.IList>()
+                ret = typeof(T).IsAssignableTo<IList>()
                     ? Activator.CreateInstance<T>()
                     : default(T);
             }
@@ -36,7 +33,7 @@ namespace ENG.WMOCodes.Decoders.Internal.Basic
             return ret;
         }
 
-        protected abstract T _Decode(GroupCollection groups);
+        protected abstract T DecodeCore(GroupCollection groups);
 
         protected GroupCollection TryGetGroups(ref string source)
         {

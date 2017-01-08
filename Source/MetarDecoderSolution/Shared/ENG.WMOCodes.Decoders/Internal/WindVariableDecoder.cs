@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class WindVariableDecoder : TypeDecoder<WindVariable>
-  {
-    public override string Description => "Wind variability";
-
-      public override string RegEx => @"^((\d{3})V(\d{3}))";
-
-      protected override WindVariable _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    internal class WindVariableDecoder : TypeDecoder<WindVariable>
     {
-      WindVariable ret = new WindVariable();
+        public override string Description => "Wind variability";
 
-      ret.FromDirection = groups[2].GetIntValue();
-      ret.ToDirection = groups[3].GetIntValue();
+        public override string RegEx => @"^((\d{3})V(\d{3}))";
 
-      return ret;
+        protected override WindVariable DecodeCore(GroupCollection groups)
+        {
+            WindVariable ret = new WindVariable
+            {
+                FromDirection = groups[2].GetIntValue(),
+                ToDirection = groups[3].GetIntValue()
+            };
+            return ret;
+        }
     }
-  }
 }

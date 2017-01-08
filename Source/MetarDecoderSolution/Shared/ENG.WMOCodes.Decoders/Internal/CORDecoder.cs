@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
-using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  internal class CORDecoder : TypeDecoder<bool>
-  {
-    public override string Description => "COR - correction";
-
-      public override string RegEx => "^COR";
-
-      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    // ReSharper disable once InconsistentNaming
+    internal class CORDecoder : TypeDecoder<bool>
     {
-      return true;
+        public override string Description => "COR - correction";
+
+        public override string RegEx => "^COR";
+
+        protected override bool DecodeCore(GroupCollection groups)
+        {
+            return true;
+        }
     }
-  }
 }

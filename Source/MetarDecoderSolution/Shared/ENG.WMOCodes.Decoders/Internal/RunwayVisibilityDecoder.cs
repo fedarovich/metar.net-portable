@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-    class RunwayVisibilityDecoder : TypeDecoder<RunwayVisibility>
+    internal class RunwayVisibilityDecoder : TypeDecoder<RunwayVisibility>
     {
         public override string Description => "Runway visibility";
 
         public override string RegEx => @"^(( ?R(\d{2}(R|L|C)?)/(M|P)?(\d{4})(V(\d{4}))?(FT|U|N|D)?))";
 
-        protected override RunwayVisibility _Decode(System.Text.RegularExpressions.GroupCollection groups)
+        protected override RunwayVisibility DecodeCore(GroupCollection groups)
         {
-            RunwayVisibility ret = new RunwayVisibility {Runway = groups[3].Value};
+            RunwayVisibility ret = new RunwayVisibility { Runway = groups[3].Value };
 
             if (groups[5].Success)
                 ret.DeviceMeasurementRestriction = (DeviceMeasurementRestriction)Enum.Parse(

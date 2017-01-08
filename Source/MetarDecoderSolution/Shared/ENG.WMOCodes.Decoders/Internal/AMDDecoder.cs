@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  internal class AMDDecoder : TypeDecoder<bool>
-  {
-    public override string Description => "AMD - amended";
-
-      public override string RegEx => "^AMD";
-
-      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    // ReSharper disable once InconsistentNaming
+    internal class AMDDecoder : TypeDecoder<bool>
     {
-      return true;
+        public override string Description => "AMD - amended";
+
+        public override string RegEx => "^AMD";
+
+        protected override bool DecodeCore(GroupCollection groups)
+        {
+            return true;
+        }
     }
-  }
 }

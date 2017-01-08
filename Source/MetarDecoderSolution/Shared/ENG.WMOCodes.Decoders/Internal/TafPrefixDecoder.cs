@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using ENG.WMOCodes.Decoders.Internal.Basic;
-using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class TafPrefixDecoder : TypeDecoder<bool>
-  {
-    public override string Description => "TAF prefix";
-
-      public override string RegEx => "TAF";
-
-      protected override bool _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    internal class TafPrefixDecoder : TypeDecoder<bool>
     {
-      if (groups[0].Success)
-        return true;
-      else
-        return false;
+        public override string Description => "TAF prefix";
+
+        public override string RegEx => "TAF";
+
+        protected override bool DecodeCore(GroupCollection groups)
+        {
+            return groups[0].Success;
+        }
     }
-  }
 }

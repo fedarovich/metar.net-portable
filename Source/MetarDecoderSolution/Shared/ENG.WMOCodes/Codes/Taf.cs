@@ -20,11 +20,11 @@ namespace ENG.WMOCodes.Codes
 
         private TafGroups _tafType = TafGroups.None;
 
-        private List<TrendInfoForTaf> _trends = new List<TrendInfoForTaf>();
+        private IList<TrendInfoForTaf> _trends = new List<TrendInfoForTaf>();
         ///<summary>
         /// Sets/gets SubReports value.
         ///</summary>
-        public List<TrendInfoForTaf> Trends
+        public IList<TrendInfoForTaf> Trends
         {
             get
             {

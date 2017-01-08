@@ -12,12 +12,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Downloader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DownloadException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDownloader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IHistoricalRetriever.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IHttpDownloader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IRetriever.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RetrieveResult.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\AviationWeatherGovRetriever.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\NoaaGovRetriever.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\METAR\VatsimRetriever.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\TAF\NoaaGovRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\Metar\AviationWeatherGovRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\Metar\NoaaGovRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\Metar\VatsimRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\Taf\AviationWeatherGovRetriever.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Retrievers\Taf\NoaaGovRetriever.cs" />
   </ItemGroup>
 </Project>

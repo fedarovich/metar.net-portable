@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ENG.WMOCodes.Downloaders.Retrievers.Taf
 {
     /// <summary>
-    /// Downloads taf data from weather.noaa.gov web site.
+    /// Downloads TAF data from noaa.gov web site.
     /// </summary>
     public class NoaaGovRetriever : IRetriever
     {
         #region IRetriever Members
 
-        private const string url = @"http://tgftp.nws.noaa.gov/data/forecasts/taf/stations/";
+        private const string Url = @"http://tgftp.nws.noaa.gov/data/forecasts/taf/stations/";
+
         /// <summary>
         /// Returns URL where Code information is stored.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Taf
         /// <returns></returns>
         public string GetUrlForICAO(string icao)
         {
-            return url + icao.ToUpper() + ".TXT";
+            return Url + icao.ToUpper() + ".TXT";
         }
 
         /// <summary>
@@ -44,8 +42,9 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Taf
             string line = await rdr.ReadLineAsync().ConfigureAwait(false);
             while (line != null)
             {
-                ret.Append(line + " ");
-                line = rdr.ReadLine();
+                ret.Append(line);
+                ret.Append(" ");
+                line = await rdr.ReadLineAsync().ConfigureAwait(false);
             }
 
             return ret.ToString();

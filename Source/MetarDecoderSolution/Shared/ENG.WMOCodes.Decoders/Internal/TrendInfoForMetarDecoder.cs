@@ -37,10 +37,10 @@ namespace ENG.WMOCodes.Decoders.Internal
       TrendInfoForMetar ret = new TrendInfoForMetar();
 
       if (groups[2].Success)
-        ret.Type = TrendInfoForMetar.eType.NOSIG;
+        ret.Type = MetarTrendType.NOSIG;
       else
       {
-        ret.Type = (TrendInfoForMetar.eType)Enum.Parse(typeof(TrendInfoForMetar.eType), groups[4].Value, false);
+        ret.Type = (MetarTrendType)Enum.Parse(typeof(MetarTrendType), groups[4].Value, false);
 
         ret.Times = DecodeTrendDates(groups[5].Value);
 
@@ -75,7 +75,7 @@ namespace ENG.WMOCodes.Decoders.Internal
     {
       TrendTime ret = new TrendTime();
 
-      ret.Type = (TrendTime.eType)Enum.Parse(typeof(TrendTime.eType), groups[1].Value, false);
+      ret.Type = (TrendTimeType)Enum.Parse(typeof(TrendTimeType), groups[1].Value, false);
       ret.Hour = int.Parse(groups[2].Value);
       ret.Minute = int.Parse(groups[3].Value);
 

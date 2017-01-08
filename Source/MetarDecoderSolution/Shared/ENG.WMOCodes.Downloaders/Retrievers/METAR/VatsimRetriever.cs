@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
@@ -17,7 +14,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// <summary>
         /// URL
         /// </summary>
-        private const string SOURCE = "http://metar.vatsim.net/metar.php?id=";
+        private const string Source = "http://metar.vatsim.net/metar.php?id=";
 
         #region IRetriever Members
 
@@ -28,7 +25,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// <returns></returns>
         public string GetUrlForICAO(string icao)
         {
-            return SOURCE + icao.ToUpper();
+            return Source + icao.ToUpper();
         }
 
         /// <summary>
@@ -60,10 +57,7 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// <returns></returns>
         private static bool IsNotValidMetar(string metar)
         {
-            if (metar.StartsWith("No METAR available"))
-                return true;
-            else
-                return false;
+            return metar.StartsWith("No METAR available");
         }
 
         #endregion

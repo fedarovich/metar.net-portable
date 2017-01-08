@@ -1,2 +1,7 @@
 Breaking changes in version 3.0
 1. Removed ENG.WMOCodes.Formatters assembly.
+2. Removed class ENG.WMOCodes.Downloaders.RetrieveResult
+3. Made nested enums non-nested.
+4. Renamed class ENG.WMOCodes.Types.ePhenomCollection to ENG.WMOCodes.Types.PhenomenonCollection
+5. Renamed property ENG.WMOCodes.Codes.Metar.Phenomens  to ENG.WMOCodes.Codes.Metar.Phenomena
+6. Renamed struct ENG.WMOCodes.Types.Basic.Racional to ENG.WMOCodes.Types.Basic.Rational

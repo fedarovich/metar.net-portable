@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -9,11 +8,8 @@ namespace ENG.WMOCodes.Extensions
 {
     internal static class ObjectExtensions
     {
-        private static int callIndex = 0;
-
         public static string ToInlineInfoString(this object obj)
         {
-            ++callIndex;
             if (obj == null)
                 return "(null)";
             if (obj is string)

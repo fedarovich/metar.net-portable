@@ -8,17 +8,17 @@ using ENG.WMOCodes.Codes;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class SeaStateDecoder : TypeDecoder<Common.eSeaState?>
+  class SeaStateDecoder : TypeDecoder<SeaState?>
   {
     public override string Description => "Sea state";
 
       public override string RegEx => @"^/(\d{2})";
 
-      protected override Common.eSeaState? _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override SeaState? _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
       int pom = groups[1].GetIntValue();
 
-      Common.eSeaState ret = (Common.eSeaState)pom;
+      SeaState ret = (SeaState)pom;
 
       return ret;
     }

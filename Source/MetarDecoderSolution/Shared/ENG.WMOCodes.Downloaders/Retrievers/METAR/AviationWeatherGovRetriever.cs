@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
+using System.Net;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
 {
-    public class AviationWeatherGovRetriever : IRetriever
+    /// <summary>
+    /// Downloads metar from web aviationweather.gov.
+    /// </summary>
+    /// <seealso cref="T:ENG.Metar.Downloader.IMetarRetrieve"/>
+    public class AviationWeatherGovRetriever : IRetriever, IHistoricalRetriever
     {
         /// <summary>
         /// Returns URL where METAR information is stored.
@@ -17,7 +22,25 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
         /// <returns></returns>
         public string GetUrlForICAO(string icao)
         {
-            return "https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=24&fields=raw_text&mostRecent=true&stationString="+icao;
+            return "https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=24&fields=raw_text,metar_type&mostRecent=true&stationString=" + icao;
+        }
+
+        public string GetUrlForICAO(string icao, TimeSpan period)
+        {
+            if (period <= TimeSpan.Zero)
+                throw new ArgumentOutOfRangeException(nameof(period));
+
+            var hoursBeforeNow = period.TotalHours.ToString("##.####", CultureInfo.InvariantCulture);
+            return $"https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow={hoursBeforeNow}&fields=raw_text,metar_type&stationString={icao}";
+        }
+
+        public string GetUrlForICAO(string icao, DateTimeOffset startTime, DateTimeOffset endTime)
+        {
+            if (startTime > endTime)
+                throw new ArgumentException("endTime must be greater than startTime");
+            
+            return $"https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&startTime={startTime:O}&endTime={endTime:O}&fields=raw_text,metar_type&stationString={icao}"
+                .Replace("+", "%2B");
         }
 
         /// <summary>
@@ -36,13 +59,30 @@ namespace ENG.WMOCodes.Downloaders.Retrievers.Metar
             XDocument document = XDocument.Parse(await reader.ReadToEndAsync().ConfigureAwait(false));
             if (document.Root == null)
                 throw new DownloadException("Invalid XML document.");
-            string report = document.Root
+            var metars = document.Root
                 .Elements("data")
-                .Elements("METAR")
-                .Elements("raw_text")
-                .First()
-                .Value;
-            return "METAR " + report;
+                .Elements("METAR");
+            string report = metars.Elements("raw_text").First().Value;
+            string type = metars.Elements("metar_type").FirstOrDefault()?.Value ?? "METAR";
+            return type + " " + report;
+        }
+
+        public async Task<IEnumerable<string>> DecodeWMOCodesAsync(Stream sourceStream)
+        {
+            StreamReader reader = new StreamReader(sourceStream);
+            XDocument document = XDocument.Parse(await reader.ReadToEndAsync().ConfigureAwait(false));
+            if (document.Root == null)
+                throw new DownloadException("Invalid XML document.");
+            var metars = document.Root
+                .Elements("data")
+                .Elements("METAR");
+            var results =
+                from metar in metars
+                let report = metar.Elements("raw_text").FirstOrDefault()?.Value
+                where report != null
+                let type = metar.Elements("metar_type").FirstOrDefault()?.Value ?? "METAR"
+                select type + " " + report;
+            return results.ToArray();
         }
     }
 }

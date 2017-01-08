@@ -24,10 +24,10 @@ namespace ENG.WMOCodes.Decoders.Internal
         ret.IsCleared = true;
       else
       {
-        ret.Deposit = (groups[4].Value == "/" ? null : (RunwayCondition.eDeposit?)groups[4].GetIntValue());
-        ret.Contamination = (groups[5].Value == "/" ? null : (RunwayCondition.eContamination?)groups[5].GetIntValue());
-        ret.Depth = (groups[6].Value == "//" ? null : (RunwayCondition.eDepth?)groups[6].GetIntValue());
-        ret.Friction = (groups[7].Value == "//" ? null : (RunwayCondition.eFriction?)groups[7].GetIntValue());
+        ret.Deposit = (groups[4].Value == "/" ? null : (RunwayDeposit?)groups[4].GetIntValue());
+        ret.Contamination = (groups[5].Value == "/" ? null : (RunwayContamination?)groups[5].GetIntValue());
+        ret.Depth = (groups[6].Value == "//" ? null : (RunwayContaminationDepth?)groups[6].GetIntValue());
+        ret.Friction = (groups[7].Value == "//" ? null : (RunwayFriction?)groups[7].GetIntValue());
       }
 
       return ret;

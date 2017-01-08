@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ENG.WMOCodes.Downloaders
 {
+    /// <summary>
+    /// <para>The classes implementing this interface can be used to download raw METAR reports by the ICAO code.</para>
+    /// <para>This interface extends <see cref="IDownloader"/> and allows to use a custom <see cref="HttpMessageHandler"/>.</para>
+    /// </summary>
     public interface IHttpDownloader : IDownloader
     {
         /// <summary>

@@ -32,7 +32,7 @@ namespace ENG.WMOCodes.Decoders.Internal
 
           string str = groups[2].Value;
           Match m = Regex.Match(str, RegEx);
-          List<ePhenomCollection> colls = null;
+          List<PhenomenonCollection> colls = null;
 
           colls = DecodePhenomSets(m);
 
@@ -43,10 +43,10 @@ namespace ENG.WMOCodes.Decoders.Internal
       return ret;
     }
 
-    private static List<ePhenomCollection> DecodePhenomSets(Match setMatch)
+    private static List<PhenomenonCollection> DecodePhenomSets(Match setMatch)
     {
-      List<ePhenomCollection> ret = new List<ePhenomCollection>();
-      ePhenomCollection curr = new ePhenomCollection();
+      List<PhenomenonCollection> ret = new List<PhenomenonCollection>();
+      PhenomenonCollection curr = new PhenomenonCollection();
 
       Match m = Regex.Match(setMatch.Value, R_PHENOM_ITEM);
 
@@ -54,20 +54,20 @@ namespace ENG.WMOCodes.Decoders.Internal
       {
         string val = m.Value.Trim();
         if (val == "-")
-          curr.Add(ePhenomCollection.ePhenom.Light);
+          curr.Add(Phenomenon.Light);
         else if (val == "+")
-          curr.Add(ePhenomCollection.ePhenom.Heavy);
+          curr.Add(Phenomenon.Heavy);
         else if (val == "")
         {
           if (curr.Count > 0)
           {
             ret.Add(curr);
-            curr = new ePhenomCollection();
+            curr = new PhenomenonCollection();
           }
         }
         else
         {
-          var ph = (ePhenomCollection.ePhenom)Enum.Parse(typeof(ePhenomCollection.ePhenom), m.Value, false);
+          var ph = (Phenomenon)Enum.Parse(typeof(Phenomenon), m.Value, false);
           curr.Add(ph);
         }
         m = m.NextMatch();

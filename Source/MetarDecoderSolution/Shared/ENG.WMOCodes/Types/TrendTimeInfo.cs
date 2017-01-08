@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using ENG.WMOCodes.Types.Basic;
 using ENG.WMOCodes.Extensions;
+using ENG.WMOCodes.Types.Basic;
 
 namespace ENG.WMOCodes.Types
 {
@@ -31,12 +29,9 @@ namespace ENG.WMOCodes.Types
     /// Returns a <see cref="T:System.String"/> that represents the current instance.
     /// </summary>
     /// <returns>A <see cref="T:System.String"/> that represents the current instance.</returns>
-    public override string ToString()
-    {
-      return this.ToInlineInfoString();
-    }
+    public override string ToString() => this.ToInlineInfoString();
 
-    #region MetarItem Members
+      #region MetarItem Members
 
 
     /// <summary>
@@ -46,12 +41,12 @@ namespace ENG.WMOCodes.Types
     /// <param name="warnings">Found warnings.</param>
     public void SanityCheck(ref List<string> errors, ref List<string> warnings)
     {
-      if (this.Count > 2)
+      if (Count > 2)
         warnings.Add("Expected one value (at) or two values (from-to) in collection.");
 
-      if (this.Count == 2)
+      if (Count == 2)
       {
-        if ((this[0].Type != TrendTime.eType.FM) || (this[1].Type != TrendTime.eType.TL))
+        if (this[0].Type != TrendTimeType.FM || this[1].Type != TrendTimeType.TL)
           warnings.Add("For two types expected pair from-to.");
       }
     }

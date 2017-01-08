@@ -5,3 +5,5 @@ obj
 Bin
 packages
 *.csproj.user
+.vs
+*.nupkg

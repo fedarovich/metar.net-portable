@@ -19,7 +19,7 @@ namespace ENG.WMOCodes.Decoders.Internal
       {
         ret.Wind = new WindDecoder() { Required = false }.Decode(ref source);
         ret.Visibility = new VisibilityDecoder() { Required = false }.Decode(ref source);
-        ret.Phenomens = new PhenomInfoWithNSWDecoder() { Required = false }.Decode(ref source);
+        ret.Phenomena = new PhenomInfoWithNSWDecoder() { Required = false }.Decode(ref source);
         ret.Clouds = new CloudInfoDecoder() { Required = false }.Decode(ref source);
       } // try
       catch (Exception ex)

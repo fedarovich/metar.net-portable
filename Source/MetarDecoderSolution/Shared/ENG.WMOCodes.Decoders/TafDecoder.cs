@@ -44,7 +44,7 @@ namespace ENG.WMOCodes.Decoders
           {
             ret.Wind = new WindDecoder() { Required=false }.Decode(ref pom);
             ret.Visibility = new VisibilityDecoder() { Required = false }.Decode(ref pom);
-            ret.Phenomens = new PhenomInfoWithNSWDecoder() { Required = false }.Decode(ref pom);
+            ret.Phenomena = new PhenomInfoWithNSWDecoder() { Required = false }.Decode(ref pom);
             ret.Clouds = new CloudInfoDecoder() { Required = false }.Decode(ref pom);
             ret.MaxTemperature = new TXDecoder() { Required = false }.Decode(ref pom);
             ret.MinTemperature = new TNDecoder() { Required = false }.Decode(ref pom);

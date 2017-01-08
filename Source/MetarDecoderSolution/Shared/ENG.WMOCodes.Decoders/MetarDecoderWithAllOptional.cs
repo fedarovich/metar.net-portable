@@ -55,9 +55,8 @@ namespace ENG.WMOCodes.Decoders
       ret.Visibility.Runways =
         new RunwayVisibilityListDecoder() { Required = false }.Decode(ref p);
 
-      var phenomens = new PhenomInfoDecoder() { Required = false }.Decode(ref p);
-      if (phenomens == null) phenomens = new Types.PhenomInfo();
-      ret.Phenomens = phenomens;
+      var phenomens = new PhenomInfoDecoder() { Required = false }.Decode(ref p) ?? new PhenomInfo();
+        ret.Phenomena = phenomens;
 
       ret.Clouds = new CloudInfoWithNCDDecoder() { Required = false }.Decode(ref p);
 
@@ -65,10 +64,9 @@ namespace ENG.WMOCodes.Decoders
 
       ret.DewPoint = new DewPointDecoder() { Required = false }.Decode(ref p);
 
-      PressureInfo pi = new PressureInfoDecoder() { Required = false }.Decode(ref p);
-      if (pi == null)
-        pi = new PressureInfo() { QNH = 1013 };
-      ret.Pressure = pi;
+      PressureInfo pi = new PressureInfoDecoder() { Required = false }.Decode(ref p) ??
+                        new PressureInfo() { QNH = 1013 };
+        ret.Pressure = pi;
 
       ret.RePhenomens = new RePhenomInfoDecoder() { Required = false }.Decode(ref p);
 

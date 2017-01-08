@@ -25,26 +25,26 @@ namespace ENG.WMOCodes.Decoders.Internal
       else if (groups[4].Success)
       {
         int distance = groups[5].GetIntValue();
-        Common.eDirection? dir = null;
+        Direction? dir = null;
         int? otherDist = null;
-        Common.eDirection? otherDir = null;
+        Direction? otherDir = null;
 
         if (groups[6].Success)
-          dir = (Common.eDirection)Enum.Parse(
-            typeof(Common.eDirection), groups[6].Value, false);
+          dir = (Direction)Enum.Parse(
+            typeof(Direction), groups[6].Value, false);
 
         if (groups[7].Success)
         {
           otherDist = groups[8].GetIntValue();
-          otherDir = (Common.eDirection)Enum.Parse(
-            typeof(Common.eDirection), groups[9].Value, false);
+          otherDir = (Direction)Enum.Parse(
+            typeof(Direction), groups[9].Value, false);
         }
 
         ret.SetMeters(distance, dir, otherDist, otherDir);
       }
       else
       {
-        Racional r = new Racional(
+        Rational r = new Rational(
           (groups[13].Success) ? groups[13].GetIntValue() : 0,
           groups[14].GetIntValue(),
           (groups[16].Success) ? groups[16].GetIntValue() : 1

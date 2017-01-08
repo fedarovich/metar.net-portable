@@ -8,19 +8,19 @@ using ENG.WMOCodes.Codes;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class MetarPrefixDecoder : TypeDecoder<Metar.eType>
+  class MetarPrefixDecoder : TypeDecoder<MetarType>
   {
     public override string Description => "METAR/SPECI prefix";
 
       public override string RegEx => "(^METAR)|(^SPECI)";
 
-      protected override Metar.eType _Decode(System.Text.RegularExpressions.GroupCollection groups)
+      protected override MetarType _Decode(System.Text.RegularExpressions.GroupCollection groups)
     {
-      Metar.eType ret;
+      MetarType ret;
       if (groups[1].Success)
-        ret = Metar.eType.METAR;
+        ret = MetarType.METAR;
       else if (groups[2].Success)
-        ret = Metar.eType.SPECI;
+        ret = MetarType.SPECI;
       else
         throw new NotSupportedException();
       return ret;

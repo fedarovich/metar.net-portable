@@ -1,51 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ENG.WMOCodes.Decoders.Internal.Basic;
 using ENG.WMOCodes.Types;
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
-  class RunwayVisibilityDecoder : TypeDecoder<RunwayVisibility>
-  {
-    public override string Description => "Runway visibility";
-
-      public override string RegEx => @"^(( ?R(\d{2}(R|L|C)?)/(M|P)?(\d{4})(V(\d{4}))?(FT|U|N|D)?))";
-
-      protected override RunwayVisibility _Decode(System.Text.RegularExpressions.GroupCollection groups)
+    class RunwayVisibilityDecoder : TypeDecoder<RunwayVisibility>
     {
-      RunwayVisibility ret = new RunwayVisibility();
+        public override string Description => "Runway visibility";
 
-      ret.Runway = groups[3].Value;
+        public override string RegEx => @"^(( ?R(\d{2}(R|L|C)?)/(M|P)?(\d{4})(V(\d{4}))?(FT|U|N|D)?))";
 
-      if (groups[5].Success)
-        ret.DeviceMeasurementRestriction = (RunwayVisibility.eDeviceMeasurementRestriction)Enum.Parse(
-          typeof(RunwayVisibility.eDeviceMeasurementRestriction), groups[5].Value, false);
-      else
-        ret.DeviceMeasurementRestriction = null;
-
-      ret.Distance = groups[6].GetIntValue();
-
-      if (groups[7].Success)
-        ret.VariableDistance = groups[8].GetIntValue();
-
-      if (groups[9].Success)
-      {
-        if (groups[9].Value == "FT")
+        protected override RunwayVisibility _Decode(System.Text.RegularExpressions.GroupCollection groups)
         {
-          ret.Unit = Common.eDistanceUnit.ft;
-          ret.Tendency = null;
-        }
-        else
-        {
-          ret.Unit = Common.eDistanceUnit.m;
-          ret.Tendency = (RunwayVisibility.eTendency)
-            Enum.Parse(typeof(RunwayVisibility.eTendency), groups[9].Value, false);
-        }
-      }
+            RunwayVisibility ret = new RunwayVisibility {Runway = groups[3].Value};
 
-      return ret;
+            if (groups[5].Success)
+                ret.DeviceMeasurementRestriction = (DeviceMeasurementRestriction)Enum.Parse(
+                  typeof(DeviceMeasurementRestriction), groups[5].Value, false);
+            else
+                ret.DeviceMeasurementRestriction = null;
+
+            ret.Distance = groups[6].GetIntValue();
+
+            if (groups[7].Success)
+                ret.VariableDistance = groups[8].GetIntValue();
+
+            if (groups[9].Success)
+            {
+                if (groups[9].Value == "FT")
+                {
+                    ret.Unit = DistanceUnit.ft;
+                    ret.Tendency = null;
+                }
+                else
+                {
+                    ret.Unit = DistanceUnit.m;
+                    ret.Tendency = (RunwayVisibilityTendency)
+                      Enum.Parse(typeof(RunwayVisibilityTendency), groups[9].Value, false);
+                }
+            }
+
+            return ret;
+        }
     }
-  }
 }

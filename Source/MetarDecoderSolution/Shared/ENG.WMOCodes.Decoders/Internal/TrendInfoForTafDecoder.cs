@@ -61,7 +61,7 @@ namespace ENG.WMOCodes.Decoders.Internal
         case eType.Becmg:
           ret.Interval =
             new TafIntervalNonFM(
-              TafIntervalNonFM.eType.BECMG, info.FromToFlag);
+              TafIntervalType.BECMG, info.FromToFlag);
           break;
         case eType.Fm:
           ret.Interval =
@@ -72,27 +72,27 @@ namespace ENG.WMOCodes.Decoders.Internal
         case eType.Prob30:
           ret.Interval =
             new TafIntervalNonFM(
-              TafIntervalNonFM.eType.PROB30, info.FromToFlag);
+              TafIntervalType.PROB30, info.FromToFlag);
           break;
         case eType.Prob40:
           ret.Interval =
             new TafIntervalNonFM(
-              TafIntervalNonFM.eType.PROB40, info.FromToFlag);
+              TafIntervalType.PROB40, info.FromToFlag);
           break;
         case eType.Tempo:
           ret.Interval =
             new TafIntervalNonFM(
-              TafIntervalNonFM.eType.TEMPO, info.FromToFlag);
+              TafIntervalType.TEMPO, info.FromToFlag);
           break;
         case eType.Tempo30:
           ret.Interval =
             new TafIntervalNonFM(
-              TafIntervalNonFM.eType.TEMPO_PROB30, info.FromToFlag);
+              TafIntervalType.TEMPO_PROB30, info.FromToFlag);
           break;
         case eType.Tempo40:
           ret.Interval =
             new TafIntervalNonFM(
-              TafIntervalNonFM.eType.TEMPO_PROB40, info.FromToFlag);
+              TafIntervalType.TEMPO_PROB40, info.FromToFlag);
           break;
         default:
           throw new NotImplementedException();

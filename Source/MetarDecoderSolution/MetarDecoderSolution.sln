@@ -8,14 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Breaking Changes.txt = Breaking Changes.txt
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Portable", "Portable", "{7724F17B-9536-4B7A-A344-0E064C726152}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes", "Portable\ENG.WMOCodes\ENG.WMOCodes.csproj", "{93D1406A-018A-4096-81D6-529F67FADB15}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Decoders", "Portable\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.csproj", "{4B872B03-A17B-4C70-BAF5-7B5105397719}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Downloaders", "Portable\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.csproj", "{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ENG.WMOCodes", "Shared\ENG.WMOCodes\ENG.WMOCodes.shproj", "{5C165F24-FEAD-42DD-9FB7-A266C2826897}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ENG.WMOCodes.Decoders", "Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.shproj", "{A5EFC26B-544C-4529-AA06-4815E7A5858A}"
@@ -36,19 +28,13 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.projitems*{07a2d975-d839-4c01-8134-74c73170198a}*SharedItemsImports = 4
 		Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems*{07a2d975-d839-4c01-8134-74c73170198a}*SharedItemsImports = 4
-		Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.projitems*{4b872b03-a17b-4c70-baf5-7b5105397719}*SharedItemsImports = 4
-		Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems*{4b872b03-a17b-4c70-baf5-7b5105397719}*SharedItemsImports = 4
 		Shared\ENG.WMOCodes\ENG.WMOCodes.projitems*{5c165f24-fead-42dd-9fb7-a266c2826897}*SharedItemsImports = 13
 		Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems*{6051cd3b-55d1-4f15-81fe-ee054ede2d15}*SharedItemsImports = 4
 		Shared\ENG.WMOCodes\ENG.WMOCodes.projitems*{6051cd3b-55d1-4f15-81fe-ee054ede2d15}*SharedItemsImports = 4
 		Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems*{7d02e7f8-893d-4800-b522-b3abe9e88914}*SharedItemsImports = 13
-		Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems*{93d1406a-018a-4096-81d6-529f67fadb15}*SharedItemsImports = 4
-		Shared\ENG.WMOCodes\ENG.WMOCodes.projitems*{93d1406a-018a-4096-81d6-529f67fadb15}*SharedItemsImports = 4
 		Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems*{a51ec04f-4796-4322-b261-53171fecd3ca}*SharedItemsImports = 4
 		Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems*{a51ec04f-4796-4322-b261-53171fecd3ca}*SharedItemsImports = 4
 		Shared\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.projitems*{a5efc26b-544c-4529-aa06-4815e7a5858a}*SharedItemsImports = 13
-		Shared\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.projitems*{e05d55ff-04a1-40ab-bb7f-b07188b6ccd5}*SharedItemsImports = 4
-		Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems*{e05d55ff-04a1-40ab-bb7f-b07188b6ccd5}*SharedItemsImports = 4
 		Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems*{f2aeda6d-4b64-461a-9a97-2835b733f4b2}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,42 +46,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Debug|x86.Build.0 = Debug|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Release|x86.ActiveCfg = Release|Any CPU
-		{93D1406A-018A-4096-81D6-529F67FADB15}.Release|x86.Build.0 = Release|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Debug|x86.Build.0 = Debug|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Release|x86.ActiveCfg = Release|Any CPU
-		{4B872B03-A17B-4C70-BAF5-7B5105397719}.Release|x86.Build.0 = Release|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Debug|x86.Build.0 = Debug|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Release|x86.ActiveCfg = Release|Any CPU
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5}.Release|x86.Build.0 = Release|Any CPU
 		{6051CD3B-55D1-4F15-81FE-EE054EDE2D15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6051CD3B-55D1-4F15-81FE-EE054EDE2D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6051CD3B-55D1-4F15-81FE-EE054EDE2D15}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -137,9 +87,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{93D1406A-018A-4096-81D6-529F67FADB15} = {7724F17B-9536-4B7A-A344-0E064C726152}
-		{4B872B03-A17B-4C70-BAF5-7B5105397719} = {7724F17B-9536-4B7A-A344-0E064C726152}
-		{E05D55FF-04A1-40AB-BB7F-B07188B6CCD5} = {7724F17B-9536-4B7A-A344-0E064C726152}
 		{6051CD3B-55D1-4F15-81FE-EE054EDE2D15} = {99DBB158-B345-40E4-93C8-1DEED5C82AE0}
 		{07A2D975-D839-4C01-8134-74C73170198A} = {99DBB158-B345-40E4-93C8-1DEED5C82AE0}
 		{A51EC04F-4796-4322-B261-53171FECD3CA} = {99DBB158-B345-40E4-93C8-1DEED5C82AE0}

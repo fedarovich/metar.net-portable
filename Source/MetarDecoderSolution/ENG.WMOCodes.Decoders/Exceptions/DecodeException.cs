@@ -6,9 +6,6 @@ namespace ENG.WMOCodes.Decoders.Internal
     /// <summary>
     /// Exception thrown when decoding failed.
     /// </summary>
-#if !PCL && (!NET_STANDARD || NET_STANDARD_1_3_PLUS)
-    [Serializable]
-#endif
     public class DecodeException : Exception
     {
         /// <summary>
@@ -27,28 +24,6 @@ namespace ENG.WMOCodes.Decoders.Internal
         {
             Description = decoderDescription;
         }
-
-#if !PCL && (!NET_STANDARD || NET_STANDARD_1_3_PLUS)
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DecodeException"/> class.
-        /// </summary>
-        /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-        /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// The <paramref name="info"/> parameter is null.
-        /// </exception>
-        /// <exception cref="T:System.Runtime.Serialization.SerializationException">
-        /// The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
-        /// </exception>
-        protected DecodeException(
-            System.Runtime.Serialization.SerializationInfo info,
-            System.Runtime.Serialization.StreamingContext context)
-          : base(info, context)
-        {
-        }
-
-#endif
 
         /// <summary>
         /// Gets a message that describes the current exception.

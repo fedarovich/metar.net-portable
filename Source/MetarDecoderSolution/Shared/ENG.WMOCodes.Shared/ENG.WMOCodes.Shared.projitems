@@ -9,7 +9,6 @@
     <Import_RootNamespace>ENG.WMOCodes.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TypeExtensions.cs" />
   </ItemGroup>
 </Project>

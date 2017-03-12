@@ -60,21 +60,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NetStandard1.1\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.csproj">
-      <Project>{07a2d975-d839-4c01-8134-74c73170198a}</Project>
-      <Name>ENG.WMOCodes.Decoders</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\NetStandard1.1\ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.csproj">
-      <Project>{a51ec04f-4796-4322-b261-53171fecd3ca}</Project>
-      <Name>ENG.WMOCodes.Downloaders</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\NetStandard1.1\ENG.WMOCodes\ENG.WMOCodes.csproj">
-      <Project>{6051cd3b-55d1-4f15-81fe-ee054ede2d15}</Project>
-      <Name>ENG.WMOCodes</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\..\ENG.WMOCodes\ENG.WMOCodes.csproj">
+      <Project>{05b87529-5559-49ac-8918-9f62b3f6cb0e}</Project>
+      <Name>ENG.WMOCodes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

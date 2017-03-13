@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.1</TargetFrameworks>
-    <Version>3.0.0-beta-1</Version>
+    <Version>3.0.0-alpha-2</Version>
     <Authors>Pavel Fedarovich, Marek Vajgl</Authors>
-    <Company>Pavel Fedarovich, Marek Vajgl</Company>
+    <Company>Pavel Fedarovich</Company>
     <Description>METAR.NET is class library used to decode and encode weather information METAR, TAF or SPECI reports used to capture and present weather mostly for aviation.
 
-METAR.NET.Portable.Core package contains data types for METAR and TAF reports.
+METAR.NET.Core.Portable package contains data types for METAR and TAF reports.
 
 This package contains a fork of METAR.NET implemented as .Net Standard library.
 The original METAR.NET project is available on https://metar.codeplex.com/
@@ -16,7 +16,7 @@ The original METAR.NET project is available on https://metar.codeplex.com/
     <Copyright>Copyright © Pavel Fedarovich 2015-2017, Marek Vajgl 2011-2013</Copyright>
     <PackageProjectUrl>https://bitbucket.org/PahanMenski/metar.net-portable</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>METAR.NET.Portable.Core</PackageId>
+    <PackageId>METAR.NET.Core.Portable</PackageId>
     <PackageLicenseUrl>https://metar.codeplex.com/license</PackageLicenseUrl>
     <PackageTags>METAR weather</PackageTags>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>

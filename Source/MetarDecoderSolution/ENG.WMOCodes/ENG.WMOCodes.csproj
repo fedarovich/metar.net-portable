@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.1;netstandard1.4</TargetFrameworks>
+    <TargetFrameworks>netstandard1.1</TargetFrameworks>
     <Version>3.0.0-beta-1</Version>
     <Authors>Pavel Fedarovich, Marek Vajgl</Authors>
     <Company>Pavel Fedarovich, Marek Vajgl</Company>

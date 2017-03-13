@@ -4,10 +4,10 @@
     <TargetFrameworks>netstandard1.1;netstandard1.4</TargetFrameworks>
     <Version>3.0.0-beta-1</Version>
     <Authors>Pavel Fedarovich, Marek Vajgl</Authors>
-    <Company>Pavel Fedarovich, Marek Vajgl</Company>
+    <Company>Pavel Fedarovich</Company>
     <Description>METAR.NET is class library used to decode and encode weather information METAR, TAF or SPECI reports used to capture and present weather mostly for aviation.
 
-METAR.NET.Portable.Downloaders package contains classes for downloading METAR and TAF reports from different sources.
+METAR.NET.Portable package is a meta package for the METAR.NET core and decoder libraries.
 
 This package contains a fork of METAR.NET implemented as .Net Standard library.
 The original METAR.NET project is available on https://metar.codeplex.com/
@@ -16,11 +16,11 @@ The original METAR.NET project is available on https://metar.codeplex.com/
     <Copyright>Copyright © Pavel Fedarovich 2015-2017, Marek Vajgl 2011-2013</Copyright>
     <PackageProjectUrl>https://bitbucket.org/PahanMenski/metar.net-portable</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>METAR.NET.Portable.Downloaders</PackageId>
+    <PackageId>METAR.NET.Portable</PackageId>
     <PackageLicenseUrl>https://metar.codeplex.com/license</PackageLicenseUrl>
     <PackageTags>METAR weather</PackageTags>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeBuildOutput>False</IncludeBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,10 +28,8 @@ The original METAR.NET project is available on https://metar.codeplex.com/
     <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj" />
   </ItemGroup>
 
-  <Import Project="..\Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems" Label="Shared" />
-
   <Target Name="CopyPackage" AfterTargets="Pack" Condition="'$(Configuration)' == 'Release'">
-    <Copy SourceFiles="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg;$(OutputPath)\$(PackageId).$(PackageVersion).symbols.nupkg" DestinationFolder="$(SolutionDir)\..\..\NuGet\$(PackageVersion)\" />
+    <Copy SourceFiles="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="$(SolutionDir)\..\..\NuGet\$(PackageVersion)\" />
   </Target>
   
 </Project>

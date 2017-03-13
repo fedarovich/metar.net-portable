@@ -5,8 +5,13 @@
     <Version>3.0.0-beta-1</Version>
     <Authors>Pavel Fedarovich, Marek Vajgl</Authors>
     <Company>Pavel Fedarovich, Marek Vajgl</Company>
-    <Description>This package contains a fork of METAR.NET Decoder implemented as Portable Class Library (PCL).
-The original METAR.NET project is available on https://metar.codeplex.com/</Description>
+    <Description>METAR.NET is class library used to decode and encode weather information METAR, TAF or SPECI reports used to capture and present weather mostly for aviation.
+
+METAR.NET.Portable.Core package contains data types for METAR and TAF reports.
+
+This package contains a fork of METAR.NET implemented as .Net Standard library.
+The original METAR.NET project is available on https://metar.codeplex.com/
+</Description>
     <NeutralLanguage>en</NeutralLanguage>
     <Copyright>Copyright © Pavel Fedarovich 2015-2017, Marek Vajgl 2011-2013</Copyright>
     <PackageProjectUrl>https://bitbucket.org/PahanMenski/metar.net-portable</PackageProjectUrl>
@@ -15,8 +20,13 @@ The original METAR.NET project is available on https://metar.codeplex.com/</Desc
     <PackageLicenseUrl>https://metar.codeplex.com/license</PackageLicenseUrl>
     <PackageTags>METAR weather</PackageTags>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
 
   <Import Project="..\Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems" Label="Shared" />
+
+  <Target Name="CopyPackage" AfterTargets="Pack" Condition="'$(Configuration)' == 'Release'">
+    <Copy SourceFiles="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg;$(OutputPath)\$(PackageId).$(PackageVersion).symbols.nupkg" DestinationFolder="$(SolutionDir)\..\..\NuGet\$(PackageVersion)\" />
+  </Target>
 
 </Project>

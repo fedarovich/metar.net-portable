@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C6590595-B790-41FB-802A-BAD1FE5ED29D}</ProjectGuid>
+    <ProjectGuid>{C9AF3491-8778-481D-8710-2B8EB221434A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ENG.WMOCodes.Tests.Net45</RootNamespace>
-    <AssemblyName>ENG.WMOCodes.Tests.Net45</AssemblyName>
+    <RootNamespace>ENG.WMOCodes.Decoders.Tests.Net45</RootNamespace>
+    <AssemblyName>ENG.WMOCodes.Decoders.Tests.Net45</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -58,24 +58,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Codes\HumidityCalculatorTests.cs" />
+    <Compile Include="MetarDecoderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.csproj">
+      <Project>{0a34457e-4e80-4358-b205-8c99d60dcb3a}</Project>
+      <Name>ENG.WMOCodes.Decoders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ENG.WMOCodes\ENG.WMOCodes.csproj">
       <Project>{05b87529-5559-49ac-8918-9f62b3f6cb0e}</Project>
       <Name>ENG.WMOCodes</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

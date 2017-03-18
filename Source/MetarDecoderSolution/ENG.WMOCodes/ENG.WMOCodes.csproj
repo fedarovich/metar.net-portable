@@ -29,4 +29,8 @@ The original METAR.NET project is available on https://metar.codeplex.com/
     <Copy SourceFiles="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg;$(OutputPath)\$(PackageId).$(PackageVersion).symbols.nupkg" DestinationFolder="$(SolutionDir)\..\..\NuGet\$(PackageVersion)\" />
   </Target>
 
+  <ItemGroup>
+    <PackageReference Update="NETStandard.Library" Version="1.6.1" />
+  </ItemGroup>
+
 </Project>

@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Downloaders", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Metapackage", "ENG.WMOCodes.Metapackage\ENG.WMOCodes.Metapackage.csproj", "{3ABE9502-E4DB-4EC8-9040-BBF767337151}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Decoders.Tests.Net45", "UnitTests\ENG.WMOCodes.Decoders.Tests.Net45\ENG.WMOCodes.Decoders.Tests.Net45.csproj", "{C9AF3491-8778-481D-8710-2B8EB221434A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\ENG.WMOCodes.Shared\ENG.WMOCodes.Shared.projitems*{f2aeda6d-4b64-461a-9a97-2835b733f4b2}*SharedItemsImports = 13
@@ -51,12 +53,17 @@ Global
 		{3ABE9502-E4DB-4EC8-9040-BBF767337151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ABE9502-E4DB-4EC8-9040-BBF767337151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ABE9502-E4DB-4EC8-9040-BBF767337151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9AF3491-8778-481D-8710-2B8EB221434A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9AF3491-8778-481D-8710-2B8EB221434A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9AF3491-8778-481D-8710-2B8EB221434A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9AF3491-8778-481D-8710-2B8EB221434A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C6590595-B790-41FB-802A-BAD1FE5ED29D} = {38442BEE-0D8B-4CE1-83CE-CC1A166CD8B1}
+		{C9AF3491-8778-481D-8710-2B8EB221434A} = {38442BEE-0D8B-4CE1-83CE-CC1A166CD8B1}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetarDecoderSolution.vsmdi

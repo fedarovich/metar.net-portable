@@ -7,10 +7,9 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
     /// <summary>
     /// Represents day-time information when metar was presented.
     /// </summary>
-    public class DayHourMinute : DateTimeType
+    public class DayHourMinute : DateTimeType, IEquatable<DayHourMinute>, IComparable<DayHourMinute>, IComparable
     {
         #region Properties
-
 
         private int _day;
         ///<summary>
@@ -105,7 +104,7 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         /// <returns></returns>
         public override string ToCode()
         {
-            return Day.ToString("00") + Hour.ToString("00") + Minute.ToString("00");
+            return $"{Day:00}{Hour:00}{Minute:00}";
         }
 
         /// <summary>
@@ -129,5 +128,87 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
 
         #endregion Inherited
 
+        #region Equality
+
+        public bool Equals(DayHourMinute other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return _day == other._day && _hour == other._hour && _minute == other._minute;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((DayHourMinute) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = _day;
+                hashCode = (hashCode * 397) ^ _hour;
+                hashCode = (hashCode * 397) ^ _minute;
+                return hashCode;
+            }
+        }
+
+        public static bool operator ==(DayHourMinute left, DayHourMinute right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(DayHourMinute left, DayHourMinute right)
+        {
+            return !Equals(left, right);
+        }
+
+        #endregion
+
+        #region Comparison
+
+        public int CompareTo(DayHourMinute other)
+        {
+            if (ReferenceEquals(this, other)) return 0;
+            if (ReferenceEquals(null, other)) return 1;
+            var dayComparison = _day.CompareTo(other._day);
+            if (dayComparison != 0) return dayComparison;
+            var hourComparison = _hour.CompareTo(other._hour);
+            if (hourComparison != 0) return hourComparison;
+            return _minute.CompareTo(other._minute);
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return 1;
+            if (ReferenceEquals(this, obj)) return 0;
+            if (!(obj is DayHourMinute)) throw new ArgumentException($"Object must be of type {nameof(DayHourMinute)}");
+            return CompareTo((DayHourMinute) obj);
+        }
+
+        public static bool operator <(DayHourMinute left, DayHourMinute right)
+        {
+            return Comparer<DayHourMinute>.Default.Compare(left, right) < 0;
+        }
+
+        public static bool operator >(DayHourMinute left, DayHourMinute right)
+        {
+            return Comparer<DayHourMinute>.Default.Compare(left, right) > 0;
+        }
+
+        public static bool operator <=(DayHourMinute left, DayHourMinute right)
+        {
+            return Comparer<DayHourMinute>.Default.Compare(left, right) <= 0;
+        }
+
+        public static bool operator >=(DayHourMinute left, DayHourMinute right)
+        {
+            return Comparer<DayHourMinute>.Default.Compare(left, right) >= 0;
+        }
+
+        #endregion
     }
 }

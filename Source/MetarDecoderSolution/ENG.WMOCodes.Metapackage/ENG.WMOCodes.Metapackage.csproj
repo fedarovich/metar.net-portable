@@ -28,6 +28,10 @@ The original METAR.NET project is available on https://metar.codeplex.com/
     <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="NETStandard.Library" Version="1.6.1" />
+  </ItemGroup>
+
   <Target Name="CopyPackage" AfterTargets="Pack" Condition="'$(Configuration)' == 'Release'">
     <Copy SourceFiles="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="$(SolutionDir)\..\..\NuGet\$(PackageVersion)\" />
     <Copy SourceFiles="$(ProjectDir)Publish.ps1" DestinationFolder="$(SolutionDir)\..\..\NuGet\$(PackageVersion)" />

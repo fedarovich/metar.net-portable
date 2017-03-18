@@ -7,7 +7,7 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
     /// <summary>
     /// Represents date/time interval defined from day-hour to day-hour
     /// </summary>
-    public class DayHourDayHour : DateTimeType
+    public class DayHourDayHour : DateTimeType, IEquatable<DayHourDayHour>
     {
         private DayHour _from = new DayHour();
         ///<summary>
@@ -21,9 +21,7 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
             }
             set
             {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value));
-                _from = value;
+                _from = value ?? throw new ArgumentNullException(nameof(value));
             }
         }
 
@@ -39,9 +37,7 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
             }
             set
             {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value));
-                _to = value;
+                _to = value ?? throw new ArgumentNullException(nameof(value));
             }
         }
 
@@ -70,5 +66,42 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
             From.SanityCheck(ref errors, ref warnings);
             To.SanityCheck(ref errors, ref warnings);
         }
+
+        #region Equality
+
+        public bool Equals(DayHourDayHour other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return _from.Equals(other._from) && _to.Equals(other._to);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((DayHourDayHour) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (_from.GetHashCode() * 397) ^ _to.GetHashCode();
+            }
+        }
+
+        public static bool operator ==(DayHourDayHour left, DayHourDayHour right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(DayHourDayHour left, DayHourDayHour right)
+        {
+            return !Equals(left, right);
+        }
+
+        #endregion
     }
 }

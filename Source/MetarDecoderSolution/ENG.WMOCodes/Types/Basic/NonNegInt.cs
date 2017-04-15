@@ -14,16 +14,10 @@ namespace ENG.WMOCodes.Types.Basic
         ///</summary>
         public int Value
         {
-            get
-            {
-                return _value;
-            }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException(nameof(value), "Unable to set negative value into this type.");
-                _value = value;
-            }
+            get => _value;
+            set => _value = value >= 0 
+                ? value 
+                : throw new ArgumentOutOfRangeException(nameof(value), "Unable to set negative value into this type.");
         }
 
         /// <summary>

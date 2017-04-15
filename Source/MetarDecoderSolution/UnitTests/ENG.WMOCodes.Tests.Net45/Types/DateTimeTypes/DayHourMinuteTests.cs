@@ -91,5 +91,15 @@ namespace ENG.WMOCodes.Tests.Net45.Types.DateTimeTypes
             Assert.True(first >= second);
             Assert.True(((IComparable)first).CompareTo(second) > 0);
         }
+
+        [Fact]
+        public void Deconstruct()
+        {
+            var dayHourMinute = new DayHourMinute(5, 12, 25);
+            var (day, hour, minute) = dayHourMinute;
+            Assert.Equal(dayHourMinute.Day, day);
+            Assert.Equal(dayHourMinute.Hour, hour);
+            Assert.Equal(dayHourMinute.Minute, minute);
+        }
     }
 }

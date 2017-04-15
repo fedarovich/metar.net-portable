@@ -67,5 +67,18 @@ namespace ENG.WMOCodes.Tests.Net45.Types.DateTimeTypes
             Assert.False(((object)first).Equals(second));
             Assert.False(((object)second).Equals(first));
         }
+
+        [Fact]
+        public void Deconstruct()
+        {
+            var dayHourDayHour = new DayHourDayHour
+            {
+                From = new DayHour(5, 7),
+                To = new DayHour(18, 23)
+            };
+            var (from, to) = dayHourDayHour;
+            Assert.Equal(dayHourDayHour.From, from);
+            Assert.Equal(dayHourDayHour.To, to);
+        }
     }
 }

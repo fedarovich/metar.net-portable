@@ -86,5 +86,14 @@ namespace ENG.WMOCodes.Tests.Net45.Types.DateTimeTypes
             Assert.True(first >= second);
             Assert.True(((IComparable)first).CompareTo(second) > 0);
         }
+
+        [Fact]
+        public void Deconstruct()
+        {
+            var hourMinute = new HourMinute(12, 25);
+            var (hour, minute) = hourMinute;
+            Assert.Equal(hourMinute.Hour, hour);
+            Assert.Equal(hourMinute.Minute, minute);
+        }
     }
 }

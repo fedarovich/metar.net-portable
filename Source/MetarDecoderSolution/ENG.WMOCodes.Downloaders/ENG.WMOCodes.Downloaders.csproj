@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.1</TargetFrameworks>
-    <Version>3.0.0-alpha-3</Version>
+    <Version>3.0.0-alpha-4</Version>
     <Authors>Pavel Fedarovich, Marek Vajgl</Authors>
     <Company>Pavel Fedarovich</Company>
     <Description>METAR.NET is class library used to decode and encode weather information METAR, TAF or SPECI reports used to capture and present weather mostly for aviation.

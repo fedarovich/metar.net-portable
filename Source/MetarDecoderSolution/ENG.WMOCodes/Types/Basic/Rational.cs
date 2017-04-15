@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Text;
 
 namespace ENG.WMOCodes.Types.Basic
@@ -44,6 +45,13 @@ namespace ENG.WMOCodes.Types.Basic
         /// numerator = 4 and denominator = 5. Internally is this value converted into 19/5.
         /// </remarks>
         public Rational(int wholePart, int numerator, int denominator) : this(numerator + wholePart * denominator, denominator) { }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void Deconstruct(out int numerator, out int denominator)
+        {
+            numerator = Numerator;
+            denominator = Denominator;
+        }
 
         /// <summary>
         /// Converts string to Racional number using / or : as delimiters between numerator and denominator.

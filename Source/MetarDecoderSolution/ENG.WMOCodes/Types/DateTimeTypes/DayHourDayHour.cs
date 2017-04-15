@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace ENG.WMOCodes.Types.DateTimeTypes
@@ -9,20 +10,31 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
     /// </summary>
     public class DayHourDayHour : DateTimeType, IEquatable<DayHourDayHour>
     {
+        public DayHourDayHour()
+        {
+        }
+
+        public DayHourDayHour(DayHour from, DayHour to)
+        {
+            From = from;
+            To = to;
+        }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void Deconstruct(out DayHour from, out DayHour to)
+        {
+            from = From;
+            to = To;
+        }
+
         private DayHour _from = new DayHour();
         ///<summary>
         /// Sets/gets From value. Default value is new DayHour().
         ///</summary>
         public DayHour From
         {
-            get
-            {
-                return _from;
-            }
-            set
-            {
-                _from = value ?? throw new ArgumentNullException(nameof(value));
-            }
+            get => _from;
+            set => _from = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         private DayHour _to = new DayHour();
@@ -31,14 +43,8 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         ///</summary>
         public DayHour To
         {
-            get
-            {
-                return _to;
-            }
-            set
-            {
-                _to = value ?? throw new ArgumentNullException(nameof(value));
-            }
+            get => _to;
+            set => _to = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>

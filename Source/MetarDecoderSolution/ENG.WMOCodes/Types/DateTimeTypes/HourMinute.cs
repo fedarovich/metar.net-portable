@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using ENG.WMOCodes.Extensions;
 
 namespace ENG.WMOCodes.Types.DateTimeTypes
@@ -16,16 +17,10 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         ///</summary>
         public int Hour
         {
-            get
-            {
-                return _hour;
-            }
-            set
-            {
-                if (!value.IsBetween(0, 23))
-                    throw new ArgumentOutOfRangeException(nameof(value), "Value have to be between 0-23.");
-                _hour = value;
-            }
+            get => _hour;
+            set => _hour = value.IsBetween(0, 23)
+                ? value
+                : throw new ArgumentOutOfRangeException(nameof(value), "Value have to be between 0-23.");
         }
 
         private int _minute;
@@ -34,16 +29,10 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         ///</summary>
         public int Minute
         {
-            get
-            {
-                return _minute;
-            }
-            set
-            {
-                if (!value.IsBetween(0, 60))
-                    throw new ArgumentOutOfRangeException(nameof(value), "Value have to be between 0-60.");
-                _minute = value;
-            }
+            get => _minute;
+            set => _minute = value.IsBetween(0, 60)
+                ? value
+                : throw new ArgumentOutOfRangeException(nameof(value), "Value have to be between 0-60.");
         }
 
         /// <summary>
@@ -65,6 +54,13 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         {
             Hour = hour;
             Minute = minute;
+        }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void Deconstruct(out int hour, out int minute)
+        {
+            hour = Hour;
+            minute = Minute;
         }
 
         #region Equality

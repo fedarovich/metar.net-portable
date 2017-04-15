@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using ENG.WMOCodes.Extensions;
 
 namespace ENG.WMOCodes.Types.DateTimeTypes
@@ -17,16 +18,10 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         ///</summary>
         public int Day
         {
-            get
-            {
-                return _day;
-            }
-            set
-            {
-                if (!value.IsBetween(1, 31))
-                    throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 1 and 31.");
-                _day = value;
-            }
+            get => _day;
+            set => _day = value.IsBetween(1, 31)
+                ? value
+                : throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 1 and 31.");
         }
 
         private int _hour;
@@ -35,16 +30,10 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         ///</summary>
         public int Hour
         {
-            get
-            {
-                return _hour;
-            }
-            set
-            {
-                if (!value.IsBetween(0, 24))
-                    throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 0 and 24.");
-                _hour = value;
-            }
+            get => _hour;
+            set => _hour = value.IsBetween(0, 24)
+                ? value
+                : throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 0 and 24.");
         }
 
         private int _minute;
@@ -53,16 +42,10 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         ///</summary>
         public int Minute
         {
-            get
-            {
-                return _minute;
-            }
-            set
-            {
-                if (!value.IsBetween(0, 59))
-                    throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 0 and 59.");
-                _minute = value;
-            }
+            get => _minute;
+            set => _minute = value.IsBetween(0, 59)
+                ? value
+                : throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 0 and 59.");
         }
 
 
@@ -95,6 +78,14 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         }
 
         #endregion .ctor
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void Deconstruct(out int day, out int hour, out int minute)
+        {
+            day = Day;
+            hour = Hour;
+            minute = Minute;
+        }
 
         #region Inherited
 

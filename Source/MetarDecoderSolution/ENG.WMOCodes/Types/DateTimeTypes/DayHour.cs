@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using ENG.WMOCodes.Extensions;
 
 namespace ENG.WMOCodes.Types.DateTimeTypes
@@ -15,16 +16,10 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         ///</summary>
         public int Day
         {
-            get
-            {
-                return _day;
-            }
-            set
-            {
-                if (!value.IsBetween(1, 31))
-                    throw new ArgumentOutOfRangeException(nameof(value), "Value have to be between 1-31.");
-                _day = value;
-            }
+            get => _day;
+            set => _day = value.IsBetween(1, 31)
+                ? value
+                : throw new ArgumentOutOfRangeException(nameof(value), "Value have to be between 1-31.");
         }
 
         private int _hour;
@@ -33,16 +28,10 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
         ///</summary>
         public int Hour
         {
-            get
-            {
-                return _hour;
-            }
-            set
-            {
-                if (!value.IsBetween(0, 24))
-                    throw new ArgumentOutOfRangeException(nameof(value), "Value have to be between 0-24.");
-                _hour = value;
-            }
+            get => _hour;
+            set => _hour = value.IsBetween(0, 24)
+                ? value
+                : throw new ArgumentOutOfRangeException(nameof(value), "Value have to be between 0-24.");
         }
 
         /// <summary>
@@ -64,6 +53,13 @@ namespace ENG.WMOCodes.Types.DateTimeTypes
             var now = DateTime.Now;
             Day = now.Day;
             Hour = now.Hour;
+        }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void Deconstruct(out int day, out int hour)
+        {
+            day = Day;
+            hour = Hour;
         }
 
         /// <summary>

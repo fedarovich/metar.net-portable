@@ -38,13 +38,8 @@ namespace ENG.WMOCodes.Codes
         ///</remarks>
         public string ICAO
         {
-            get { return _icao; }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value));
-                _icao = value;
-            }
+            get => _icao;
+            set => _icao = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         private DayHourMinute _date = new DayHourMinute();
@@ -59,16 +54,8 @@ namespace ENG.WMOCodes.Codes
         ///</remarks>
         public DayHourMinute Date
         {
-            get
-            {
-                return _date;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value));
-                _date = value;
-            }
+            get => _date;
+            set => _date = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         ///<summary>
@@ -93,16 +80,8 @@ namespace ENG.WMOCodes.Codes
         ///</summary>
         public WindWithVariability Wind
         {
-            get
-            {
-                return _wind;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value));
-                _wind = value;
-            }
+            get => _wind;
+            set => _wind = value ?? throw new ArgumentNullException(nameof(value));
         }
 
 
@@ -113,16 +92,8 @@ namespace ENG.WMOCodes.Codes
         ///</summary>
         public VisibilityForMetar Visibility
         {
-            get
-            {
-                return _visibility;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value));
-                _visibility = value;
-            }
+            get => _visibility;
+            set => _visibility = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         private PhenomInfo _phenomena;
@@ -131,16 +102,8 @@ namespace ENG.WMOCodes.Codes
         ///</summary>
         public PhenomInfo Phenomena
         {
-            get
-            {
-                return _phenomena;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value), "Property Phenomena cannot be null. Use empty object/collection instead.");
-                _phenomena = value;
-            }
+            get => _phenomena;
+            set => _phenomena = value ?? throw new ArgumentNullException(nameof(value), "Property Phenomena cannot be null. Use empty object/collection instead.");
         }
 
 
@@ -150,16 +113,8 @@ namespace ENG.WMOCodes.Codes
         ///</summary>
         public CloudInfoWithNCD Clouds
         {
-            get
-            {
-                return _clouds;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value), "Property Clouds cannot be null. Use empty object/collection instead.");
-                _clouds = value;
-            }
+            get => _clouds;
+            set => _clouds = value ?? throw new ArgumentNullException(nameof(value), "Property Clouds cannot be null. Use empty object/collection instead.");
         }
 
         ///<summary>
@@ -178,16 +133,8 @@ namespace ENG.WMOCodes.Codes
         ///</summary>
         public PressureInfo Pressure
         {
-            get
-            {
-                return _pressure;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value));
-                _pressure = value;
-            }
+            get => _pressure;
+            set => _pressure = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         private RePhenomInfo _rePhenomens;
@@ -196,16 +143,8 @@ namespace ENG.WMOCodes.Codes
         ///</summary>
         public RePhenomInfo RePhenomens
         {
-            get
-            {
-                return _rePhenomens;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value), "Property RePhenomens cannot be null. Use empty object/collection instead.");
-                _rePhenomens = value;
-            }
+            get => _rePhenomens;
+            set => _rePhenomens = value ?? throw new ArgumentNullException(nameof(value), "Property RePhenomens cannot be null. Use empty object/collection instead.");
         }
 
         private WindShearInfo _windShears;
@@ -214,16 +153,8 @@ namespace ENG.WMOCodes.Codes
         ///</summary>
         public WindShearInfo WindShears
         {
-            get
-            {
-                return _windShears;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value), "Property WindShears cannot be null. Use empty object/collection instead.");
-                _windShears = value;
-            }
+            get => _windShears;
+            set => _windShears = value ?? throw new ArgumentNullException(nameof(value), "Property WindShears cannot be null. Use empty object/collection instead.");
         }
 
         private RunwayConditionInfo _runwayConditions;
@@ -232,16 +163,8 @@ namespace ENG.WMOCodes.Codes
         ///</summary>
         public RunwayConditionInfo RunwayConditions
         {
-            get
-            {
-                return _runwayConditions;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value), "Property Runways cannot be null. Use empty object/collection instead.");
-                _runwayConditions = value;
-            }
+            get => _runwayConditions;
+            set => _runwayConditions = value ?? throw new ArgumentNullException(nameof(value), "Property Runways cannot be null. Use empty object/collection instead.");
         }
 
         ///<summary>

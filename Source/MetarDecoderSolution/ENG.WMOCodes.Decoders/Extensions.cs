@@ -32,6 +32,14 @@ namespace ENG.WMOCodes.Decoders
             return ret;
         }
 
+        public static T? GetOptionalEnumValue<T>(this System.Text.RegularExpressions.Group grp) where T : struct
+        {
+            if (!grp.Success)
+                return null;
+
+            return Enum.TryParse(grp.Value, out T value) ? value : (T?)null;
+        }
+
         /// <summary>
         /// Copies the properties from one object to the other. Only intersection of the properties are copied, rest is ignored.
         /// </summary>

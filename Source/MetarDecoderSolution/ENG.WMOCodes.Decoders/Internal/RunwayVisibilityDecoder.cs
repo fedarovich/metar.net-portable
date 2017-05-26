@@ -9,26 +9,26 @@ namespace ENG.WMOCodes.Decoders.Internal
     {
         public override string Description => "Runway visibility";
 
-        public override string RegEx => @"^(( ?R(\d{2}(R|L|C)?)/(M|P)?(\d{4})(V(\d{4}))?(FT|U|N|D)?))";
+        public override string RegEx => @"^(( ?R(?<runway>\d{2}(R|L|C)?)/(?<rest>M|P)?(?<dist>\d{4})(?<v>V(?<vrest>M|P)?(?<vdist>\d{4}))?(?<tend>FT|U|N|D)?))";
 
         protected override RunwayVisibility DecodeCore(GroupCollection groups)
         {
-            RunwayVisibility ret = new RunwayVisibility { Runway = groups[3].Value };
+            RunwayVisibility ret = new RunwayVisibility { Runway = groups["runway"].Value };
 
-            if (groups[5].Success)
-                ret.DeviceMeasurementRestriction = (DeviceMeasurementRestriction)Enum.Parse(
-                  typeof(DeviceMeasurementRestriction), groups[5].Value, false);
-            else
-                ret.DeviceMeasurementRestriction = null;
+            var distance = groups["dist"].GetIntValue();
+            var restriction = groups["rest"].GetOptionalEnumValue<DeviceMeasurementRestriction>();
+            ret.Distance = new RunwayVisibilityDistance(distance, restriction);
 
-            ret.Distance = groups[6].GetIntValue();
-
-            if (groups[7].Success)
-                ret.VariableDistance = groups[8].GetIntValue();
-
-            if (groups[9].Success)
+            if (groups["v"].Success)
             {
-                if (groups[9].Value == "FT")
+                var varDistance = groups["vdist"].GetIntValue();
+                var varRestriction = groups["vrest"].GetOptionalEnumValue<DeviceMeasurementRestriction>();
+                ret.VariableDistance = new RunwayVisibilityDistance(varDistance, varRestriction);
+            }
+
+            if (groups["tend"].Success)
+            {
+                if (groups["tend"].Value == "FT")
                 {
                     ret.Unit = DistanceUnit.ft;
                     ret.Tendency = null;
@@ -37,7 +37,7 @@ namespace ENG.WMOCodes.Decoders.Internal
                 {
                     ret.Unit = DistanceUnit.m;
                     ret.Tendency = (RunwayVisibilityTendency)
-                      Enum.Parse(typeof(RunwayVisibilityTendency), groups[9].Value, false);
+                      Enum.Parse(typeof(RunwayVisibilityTendency), groups["tend"].Value, false);
                 }
             }
 

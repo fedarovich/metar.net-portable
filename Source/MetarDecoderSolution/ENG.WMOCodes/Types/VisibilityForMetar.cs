@@ -36,16 +36,8 @@ namespace ENG.WMOCodes.Types
         ///</summary>
         public IList<RunwayVisibility> Runways
         {
-            get
-            {
-                return _runways;
-            }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException(nameof(value), "Property Runways cannot be null. Use empty object/collection instead.");
-                _runways = value;
-            }
+            get => _runways;
+            set => _runways = value ?? throw new ArgumentNullException(nameof(value), "Property Runways cannot be null. Use empty object/collection instead.");
         }
 
         #endregion Properties

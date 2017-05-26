@@ -20,12 +20,6 @@ namespace ENG.WMOCodes.Types
         #region Properties
 
         ///<summary>
-        /// Sets/gets device measurement restriction. Null if not used.
-        ///</summary>
-        public DeviceMeasurementRestriction? DeviceMeasurementRestriction { get; set; } = null;
-
-
-        ///<summary>
         /// Sets/gets visibility tendency value. Null if not used.
         ///</summary>
         public RunwayVisibilityTendency? Tendency { get; set; }
@@ -34,12 +28,12 @@ namespace ENG.WMOCodes.Types
         ///<summary>
         /// Sets/gets Visibility value.
         ///</summary>
-        public NonNegInt Distance { get; set; }
+        public RunwayVisibilityDistance Distance { get; set; }
 
         ///<summary>
         /// Sets/gets VariableVisibility value. Null if visibility does not vary.
         ///</summary>
-        public NonNegInt? VariableDistance { get; set; }
+        public RunwayVisibilityDistance? VariableDistance { get; set; }
 
         ///<summary>
         /// Sets/gets Runway designator.
@@ -78,8 +72,6 @@ namespace ENG.WMOCodes.Types
             StringBuilder ret = new StringBuilder();
 
             ret.Append("R" + Runway + "/");
-            if (DeviceMeasurementRestriction != null)
-                ret.Append(DeviceMeasurementRestriction.Value);
             ret.Append(Distance.ToString("0000"));
             if (VariableDistance.HasValue)
                 ret.Append("V" + VariableDistance.Value.ToString("0000"));

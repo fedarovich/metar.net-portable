@@ -9,6 +9,9 @@ namespace ENG.WMOCodes.Downloaders
     /// Raised when some error occurs during metar downloading or decoding.
     /// Inner exception should contain more accurate information.
     /// </summary>
+#if NETSTANDARD2_0
+    [Serializable]
+#endif
     public class DownloadException : Exception
     {
         /// <summary>

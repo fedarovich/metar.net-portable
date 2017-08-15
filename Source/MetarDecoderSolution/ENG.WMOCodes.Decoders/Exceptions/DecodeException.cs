@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Text;
+#if NETSTANDARD2_0
+using System.Runtime.Serialization;
+#endif
 
 namespace ENG.WMOCodes.Decoders.Internal
 {
     /// <summary>
     /// Exception thrown when decoding failed.
     /// </summary>
+#if NETSTANDARD2_0
+    [Serializable]
+#endif
     public class DecodeException : Exception
     {
         /// <summary>
@@ -66,5 +72,18 @@ namespace ENG.WMOCodes.Decoders.Internal
 
             return tree.ToString();
         }
+
+#if NETSTANDARD2_0
+        protected DecodeException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+            Description = info.GetString(nameof(Description));
+        }
+
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            base.GetObjectData(info, context);
+            info.AddValue(nameof(Description), Description);
+        }
+#endif
     }
 }

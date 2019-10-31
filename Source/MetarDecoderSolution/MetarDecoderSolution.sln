@@ -12,17 +12,17 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ENG.WMOCodes.Shared", "Shar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{38442BEE-0D8B-4CE1-83CE-CC1A166CD8B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Tests.Net45", "UnitTests\ENG.WMOCodes.Tests.Net45\ENG.WMOCodes.Tests.Net45.csproj", "{C6590595-B790-41FB-802A-BAD1FE5ED29D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Tests", "UnitTests\ENG.WMOCodes.Tests\ENG.WMOCodes.Tests.csproj", "{C6590595-B790-41FB-802A-BAD1FE5ED29D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes", "ENG.WMOCodes\ENG.WMOCodes.csproj", "{05B87529-5559-49AC-8918-9F62B3F6CB0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENG.WMOCodes", "ENG.WMOCodes\ENG.WMOCodes.csproj", "{05B87529-5559-49AC-8918-9F62B3F6CB0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Decoders", "ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.csproj", "{0A34457E-4E80-4358-B205-8C99D60DCB3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENG.WMOCodes.Decoders", "ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.csproj", "{0A34457E-4E80-4358-B205-8C99D60DCB3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Downloaders", "ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.csproj", "{94A70879-5F15-4807-B6F6-F9D6660BA636}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENG.WMOCodes.Downloaders", "ENG.WMOCodes.Downloaders\ENG.WMOCodes.Downloaders.csproj", "{94A70879-5F15-4807-B6F6-F9D6660BA636}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Metapackage", "ENG.WMOCodes.Metapackage\ENG.WMOCodes.Metapackage.csproj", "{3ABE9502-E4DB-4EC8-9040-BBF767337151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENG.WMOCodes.Metapackage", "ENG.WMOCodes.Metapackage\ENG.WMOCodes.Metapackage.csproj", "{3ABE9502-E4DB-4EC8-9040-BBF767337151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Decoders.Tests.Net45", "UnitTests\ENG.WMOCodes.Decoders.Tests.Net45\ENG.WMOCodes.Decoders.Tests.Net45.csproj", "{C9AF3491-8778-481D-8710-2B8EB221434A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENG.WMOCodes.Decoders.Tests", "UnitTests\ENG.WMOCodes.Decoders.Tests\ENG.WMOCodes.Decoders.Tests.csproj", "{C9AF3491-8778-481D-8710-2B8EB221434A}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -64,6 +64,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C6590595-B790-41FB-802A-BAD1FE5ED29D} = {38442BEE-0D8B-4CE1-83CE-CC1A166CD8B1}
 		{C9AF3491-8778-481D-8710-2B8EB221434A} = {38442BEE-0D8B-4CE1-83CE-CC1A166CD8B1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0287CD2F-95E8-488E-977F-3DFE8C456AB7}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetarDecoderSolution.vsmdi

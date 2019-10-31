@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
+    <Authors>Pavel Fedarovich, Marek Vajgl</Authors>
+    <Company>Pavel Fedarovich</Company>
+    <Description>METAR.NET is class library used to decode and encode weather information METAR, TAF or SPECI reports used to capture and present weather mostly for aviation.
+
+METAR.NET.Portable package is a meta package for the METAR.NET core and decoder libraries.
+
+This package contains a fork of METAR.NET implemented as .Net Standard library.
+The original METAR.NET project is available on https://metar.codeplex.com/
+</Description>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Copyright>Copyright © Pavel Fedarovich 2015-2017, Marek Vajgl 2011-2013</Copyright>
+    <PackageProjectUrl>https://bitbucket.org/PahanMenski/metar.net-portable</PackageProjectUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>METAR.NET.Portable</PackageId>
+    <PackageLicenseUrl>https://metar.codeplex.com/license</PackageLicenseUrl>
+    <PackageTags>METAR weather</PackageTags>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <IncludeBuildOutput>False</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ENG.WMOCodes.Decoders\ENG.WMOCodes.Decoders.csproj" />
+    <ProjectReference Include="..\ENG.WMOCodes\ENG.WMOCodes.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="NETStandard.Library" Version="2.0.0" />
+  </ItemGroup>
+
+  <Target Name="CopyPackage" AfterTargets="Pack" Condition="'$(Configuration)' == 'Release'">
+    <Copy SourceFiles="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="$(SolutionDir)\..\..\NuGet\$(PackageVersion)\" />
+    <Copy SourceFiles="$(ProjectDir)Publish.ps1" DestinationFolder="$(SolutionDir)\..\..\NuGet\$(PackageVersion)" />
+  </Target>
+  
+</Project>

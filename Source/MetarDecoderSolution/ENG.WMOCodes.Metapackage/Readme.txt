@@ -1,0 +1,1 @@
+﻿This project is used to produce a METAR.NET.Portable metapackage only.

@@ -5,3 +5,6 @@ obj
 Bin
 packages
 *.csproj.user
+.vs
+*.nupkg
+NuGet
